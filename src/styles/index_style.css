@@ -10,6 +10,7 @@ html,
 body {
     width: 100%;
     height: 100%;
+    background-color: var(--color-bg-main);
 }
 
 body {
@@ -24,7 +25,7 @@ body {
 
 .navbar {
     width: 100%;
-    height: 7.73vh;
+    height: 8.73vh;
 
     background-color: var(--color-primary);
 
@@ -102,25 +103,30 @@ body {
    ÁREA DE BOAS-VINDAS
 ======================================== */
 
-.welcome-section {
+.main {
     width: 100%;
-    height: 53.17vh;
-
-    background-color: var(--color-bg-main);
-
-    display: flex;
-    justify-content: space-between;
+    min-height: 46.1vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3vw;
 }
 
 
 /* Texto Bem Vindo */
 
-.welcome-text {
-    margin-left: 4.4vw;
-    margin-top: 14.8vh;
+.welcome-box {
+    background-color: var(--color-bg-surface);
+    width: auto;
+    height: 23vh;
+    margin: 4.8vh 2.4vw 0 2.4vw ;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px -3px rgba(0, 0, 0, 0.2);
+    
 }
 
-.welcome-text h1 {
+.welcome-box h1 {
     color: var(--color-text-main);
 
     font-family: monospace;
@@ -129,6 +135,30 @@ body {
     line-height: 0.98;
 
     font-weight: 900;
+
+}
+
+.course-box{
+    background-color: var(--color-bg-surface);
+    width: auto;
+    height: 55vh;
+    margin: 4.8vh 2.4vw 0 2.4vw ;
+    display: flex;
+    justify-items: left;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px -3px rgba(0, 0, 0, 0.2);
+}
+
+.course-box h2 {
+    color: var(--color-text-main);
+
+    font-family: monospace;
+
+    font-size: 2.7vw;
+    line-height: 0.98;
+
+    font-weight: 600;
+
 }
 
 
@@ -139,19 +169,23 @@ body {
 .course-info {
     width: 31vw;
 
-    margin-top: 11.8vh;
-    margin-right: 4.2vw;
+    margin-top: 5.8vh;
+    margin-left: 2.4vw;
 
     display: flex;
     flex-direction: column;
 
     gap: 4.3vh;
+
+    & li {
+        font-size: 2.3vw;
+        margin-left: 4.4vw;
+    }
 }
 
 .info-item {
     display: flex;
     align-items: center;
-
     white-space: nowrap;
 }
 
@@ -171,33 +205,16 @@ body {
     font-weight: bold;
 }
 
-
-/* ========================================
-   ÁREA LARANJA
-======================================== */
-
-.bottom-section {
-    position: relative;
-
-    width: 100%;
-    height: 46.1vh;
-    background-color: var(--color-secondary);
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    padding-top: 7.4vh;
-    gap: 4.8vh;
-
-    & h1{
-        padding-bottom: 0px;
-        margin: 0px;
-        color: var(--color-accent)
-    }
+.news-box{
+    width: auto;
+    min-height: 90%;
+    margin: 4.8vh 2.4vw 0 2.4vw ;
+    border-radius: 10px;
     
 }
-
+.news-box h1{
+    color: var(--color-accent);
+}
 
 /* Caixas */
 
@@ -205,9 +222,12 @@ body {
     position: relative;
     z-index: 1;
 
-    width: 83.55vw;
-    height: 10.5vh;
+    margin-top: 1vh;
+    margin-bottom: 3vh;
+    width: 80%;
+    height: 29%;
 
     background-color: var(--color-bg-surface);
     border-radius: 8px;
+    box-shadow: 0px 4px 15px -3px rgba(0, 0, 0, 0.2);
 }

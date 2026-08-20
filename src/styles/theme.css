@@ -1,29 +1,21 @@
 :root {
-  /* --- PALETA BASE FIXA --- */
+/* --- BASE BRAND PALETTE --- */
   --color-primary: #003695;
   --color-secondary: #004ea5;
-  --color-accent: #ecb31d;
-  --color-bg-main: #fefefe;
+  --color-accent: #d99b00; /* Darkened slightly for accessible contrast */
+  
+  /* --- SURFACES & CANVAS --- */
+  --color-bg-main: #f8fafc;
+  --color-bg-surface: #ffffff;
+  --color-border: #e2e8f0;
 
-  /* --- VARIANTES AUTOMÁTICAS (Derivadas do seu Azul Primário Fixo) --- */
-  /* Tom muito claro para fundos sutis ou estados de hover */
-  --color-primary-light: oklch(from var(--color-primary) 0.96 c h); 
-  
-  /* Tom mais escuro para estados de hover em botões e links ativos */
-  --color-primary-dark: oklch(from var(--color-primary) 0.25 c h);  
-  
-  /* Opacidade de 15% do azul primário para tags, badges ou alertas */
-  --color-primary-fade: oklch(from var(--color-primary) l c h / 0.15); 
+  /* --- DYNAMIC OKLCH TINTS --- */
+  --color-primary-light: oklch(from var(--color-primary) 0.96 0.02 h);
+  --color-primary-dark: oklch(from var(--color-primary) 0.20 0.08 h);
+  --color-primary-fade: oklch(from var(--color-primary) l c h / 0.12);
 
-  /* --- SUPERFÍCIES E TEXTOS OTIMIZADOS PARA ALTA UI/UX --- */
-  /* Segunda camada de fundo (cards, sidebars) adaptada ao subtom do seu azul */
-  --color-bg-surface: oklch(from var(--color-primary) 0.97 0.01 h); 
-  
-  /* Texto principal com contraste máximo (passa na WCAG AAA), evitando o preto puro */
-  --color-text-main: oklch(from var(--color-primary) 0.12 0.03 h);   
-  --color-text-on-primary: #f0f6ff;
-  
-  /* Texto secundário legível, mas visualmente subordinado ao texto principal */
-  --color-text-muted: oklch(from var(--color-primary) 0.42 0.02 h);  
-
+  /* --- TYPOGRAPHY --- */
+  --color-text-main: #0f172a;
+  --color-text-muted: #475569;
+  --color-text-on-primary: #ffffff;
 }
