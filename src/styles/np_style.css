@@ -142,7 +142,7 @@ body {
 .avaliacao{
     color: white;
     margin-top: 10px;
-    margin-left: 10px;
+    margin-left: 45px;
     font-size: 35px;
 }
 .sua-nota{
@@ -150,7 +150,11 @@ body {
     margin-top: 10px;
     margin-left: 100px;
     font-size: 35px;
-
+}
+footer{
+    font-size: 25px;
+    margin-top: 10px;
+    color:blue;
 }
 
 
