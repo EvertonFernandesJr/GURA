@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Área restrita</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --ink: #17202a;
+            --muted: #68737d;
+            --line: #d9e0e5;
+            --accent: #d45b3f;
+            --accent-dark: #ad4028;
+            --surface: #ffffff;
+            --background: #f4efe8;
+            --success: #1d7a48;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            color: var(--ink);
+            background: var(--background);
+            font-family: Georgia, 'Times New Roman', serif;
+        }
+
+        main {
+            width: min(100%, 430px);
+            padding: clamp(32px, 7vw, 56px);
+            background: var(--surface);
+            border: 1px solid rgba(23, 32, 42, 0.08);
+            box-shadow: 0 22px 60px rgba(77, 57, 43, 0.14);
+        }
+
+        .brand {
+            margin: 0 0 36px;
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            font-size: clamp(2rem, 7vw, 2.7rem);
+            line-height: 1.05;
+            font-weight: normal;
+        }
+
+        .intro {
+            margin: 0 0 30px;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        form {
+            display: grid;
+            gap: 18px;
+        }
+
+        label {
+            display: grid;
+            gap: 8px;
+            color: var(--ink);
+            font-family: Arial, sans-serif;
+            font-size: 0.82rem;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px 14px;
+            color: var(--ink);
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 3px;
+            font: inherit;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 160ms ease, box-shadow 160ms ease;
+        }
+
+        input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(212, 91, 63, 0.16);
+        }
+
+        .options {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin: 2px 0 4px;
+            font-family: Arial, sans-serif;
+            font-size: 0.8rem;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--muted);
+            font-weight: normal;
+        }
+
+        .remember input {
+            width: 15px;
+            height: 15px;
+            accent-color: var(--accent);
+        }
+
+        a,
+        .text-button {
+            color: var(--accent-dark);
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        a:hover,
+        a:focus-visible,
+        .text-button:hover,
+        .text-button:focus-visible {
+            text-decoration: underline;
+        }
+
+        button {
+            margin-top: 4px;
+            padding: 14px 18px;
+            color: #fff;
+            background: var(--accent);
+            border: 0;
+            border-radius: 3px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            font-size: 0.92rem;
+            font-weight: bold;
+            transition: background 160ms ease, transform 160ms ease;
+        }
+
+        button:hover {
+            background: var(--accent-dark);
+            transform: translateY(-1px);
+        }
+
+        button:focus-visible {
+            outline: 3px solid rgba(212, 91, 63, 0.3);
+            outline-offset: 3px;
+        }
+
+        .text-button {
+            background: transparent;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font: inherit;
+            cursor: pointer;
+        }
+
+        .status {
+            min-height: 1.2em;
+            margin: 2px 0 0;
+            color: var(--accent-dark);
+            font-family: Arial, sans-serif;
+            font-size: 0.82rem;
+            text-align: center;
+        }
+
+        .status.success {
+            color: var(--success);
+        }
+
+        .signup {
+            margin: 28px 0 0;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.82rem;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 380px) {
+            body {
+                padding: 12px;
+            }
+
+            main {
+                padding: 30px 22px;
+            }
+
+            .options {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section id="login-panel">
+            <p class="brand">Seu espaço</p>
+            <h1>Boas-vindas.</h1>
+            <p class="intro">Entre na sua conta para continuar de onde parou.</p>
+
+            <form id="login-form">
+                <label for="email">
+                    E-mail
+                    <input id="email" name="email" type="email" autocomplete="email" placeholder="voce@exemplo.com" required>
+                </label>
+
+                <label for="password">
+                    Senha
+                    <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Digite sua senha" required minlength="6">
+                </label>
+
+                <div class="options">
+                    <label class="remember" for="remember">
+                        <input id="remember" name="remember" type="checkbox">
+                        Lembrar de mim
+                    </label>
+                    <a href="#recuperar">Esqueci minha senha</a>
+                </div>
+
+                <button type="submit">Entrar</button>
+                <p id="login-status" class="status" role="status" aria-live="polite"></p>
+            </form>
+
+            <p class="signup">Ainda não tem uma conta? <button type="button" class="text-button" id="show-signup">Criar conta</button></p>
+        </section>
+
+        <section id="signup-panel" class="hidden">
+            <p class="brand">Novo cadastro</p>
+            <h1>Criar conta.</h1>
+            <p class="intro">Preencha os dados abaixo para começar a usar sua conta.</p>
+
+            <form id="signup-form">
+                <label for="signup-name">
+                    Nome completo
+                    <input id="signup-name" name="signup-name" type="text" placeholder="Seu nome" required>
+                </label>
+
+                <label for="signup-email">
+                    E-mail
+                    <input id="signup-email" name="signup-email" type="email" autocomplete="email" placeholder="voce@exemplo.com" required>
+                </label>
+
+                <label for="signup-password">
+                    Senha
+                    <input id="signup-password" name="signup-password" type="password" placeholder="Crie uma senha" required minlength="6">
+                </label>
+
+                <label for="signup-confirm-password">
+                    Confirmar senha
+                    <input id="signup-confirm-password" name="signup-confirm-password" type="password" placeholder="Repita a senha" required minlength="6">
+                </label>
+
+                <button type="submit">Cadastrar</button>
+                <p id="signup-status" class="status" role="status" aria-live="polite"></p>
+            </form>
+
+            <p class="signup">Já possui uma conta? <button type="button" class="text-button" id="show-login">Entrar</button></p>
+        </section>
+    </main>
+
+    <script>
+        const STORAGE_KEY = 'usuarios-cadastrados';
+        const loginForm = document.querySelector('#login-form');
+        const signupForm = document.querySelector('#signup-form');
+        const loginStatus = document.querySelector('#login-status');
+        const signupStatus = document.querySelector('#signup-status');
+        const loginPanel = document.querySelector('#login-panel');
+        const signupPanel = document.querySelector('#signup-panel');
+
+        function clearStatus(element) {
+            element.textContent = '';
+            element.classList.remove('success');
+        }
+
+        function readUsers() {
+            try {
+                return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+            } catch (error) {
+                return [];
+            }
+        }
+
+        function saveUsers(users) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(users));
+        }
+
+        function showPanel(targetPanel) {
+            loginPanel.classList.toggle('hidden', targetPanel !== loginPanel);
+            signupPanel.classList.toggle('hidden', targetPanel !== signupPanel);
+            clearStatus(loginStatus);
+            clearStatus(signupStatus);
+        }
+
+        document.querySelector('#show-signup').addEventListener('click', () => showPanel(signupPanel));
+        document.querySelector('#show-login').addEventListener('click', () => showPanel(loginPanel));
+
+        loginForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            if (!loginForm.checkValidity()) {
+                loginStatus.textContent = 'Por favor, preencha todos os campos corretamente.';
+                return;
+            }
+
+            const email = document.querySelector('#email').value.trim().toLowerCase();
+            const password = document.querySelector('#password').value;
+            const users = readUsers();
+            const user = users.find((item) => item.email === email && item.password === password);
+
+            if (!user) {
+                loginStatus.textContent = 'E-mail ou senha inválidos.';
+                return;
+            }
+
+            loginStatus.textContent = 'Login bem-sucedido!';
+            loginStatus.classList.add('success');
+        });
+
+        loginForm.addEventListener('input', () => clearStatus(loginStatus));
+
+        signupForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            if (!signupForm.checkValidity()) {
+                signupStatus.textContent = 'Preencha todos os campos corretamente.';
+                return;
+            }
+
+            const name = document.querySelector('#signup-name').value.trim();
+            const email = document.querySelector('#signup-email').value.trim().toLowerCase();
+            const password = document.querySelector('#signup-password').value;
+            const confirmPassword = document.querySelector('#signup-confirm-password').value;
+
+            if (password !== confirmPassword) {
+                signupStatus.textContent = 'As senhas não conferem.';
+                return;
+            }
+
+            const users = readUsers();
+            const userExists = users.some((item) => item.email === email);
+
+            if (userExists) {
+                signupStatus.textContent = 'Este e-mail já está cadastrado.';
+                return;
+            }
+
+            users.push({
+                name,
+                email,
+                password
+            });
+
+            saveUsers(users);
+            signupStatus.textContent = 'Conta criada com sucesso!';
+            signupStatus.classList.add('success');
+            signupForm.reset();
+
+            setTimeout(() => {
+                showPanel(loginPanel);
+                document.querySelector('#email').value = email;
+                document.querySelector('#password').focus();
+            }, 1200);
+        });
+
+        signupForm.addEventListener('input', () => clearStatus(signupStatus));
+    </script>
+</body>
+</html>
