@@ -1,63 +1,569 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GURA</title>
     <link rel="stylesheet" href="/src/styles/np_style.css">
 </head>
-<body>
+
 <body>
 
-    <!-- NAVBAR -->
+    <!-- ========================================
+         NAVBAR
+    ========================================= -->
+
     <header class="navbar">
 
         <div class="navbar-logo"></div>
 
         <nav class="navbar-menu">
+
             <a href="/index.html">Início</a>
+
             <a href="#noticias">Notícias</a>
-            <a href="#gerenciador-grade">Gerenciador de grade</a>
+
+            <a href="#gerenciador-grade">
+                Gerenciador de grade
+            </a>
+
         </nav>
 
         <div class="navbar-profile">
+
             <div class="profile-head"></div>
             <div class="profile-body"></div>
+
         </div>
 
     </header>
 
 
-    <!-- CONTEÚDO -->
+
+    <!-- ========================================
+         CONTEÚDO PRINCIPAL
+    ========================================= -->
+
     <main>
 
-        <!-- ÁREA DE BOAS-VINDAS -->
-        <section class="fundo-np">
-            <div class="foto-prof"></div>
-            <div class="dados-prof">Nome: Hamilton <br>  Matéria: Eletronica <br> Formação: Engenharia Elétrica | Unicamp</div>
-        </section>
-        <section class="nota-prof">
-            <div class="avaliacao">
-                <ul>
-                Média geral
-                <li>Nota geral: 5/5</li>
-                <li>Nota aula: 5/5 </li>
-                <li>Nota pessoa: 5/5 </li>
-                </ul>
-            </div>
-            <div class="sua-nota">
-                Média geral
-                <li>Nota geral: <input type ="range" class="notas" min="0.5" max="5" step="0.5" value="0.5"> </li>
-                <li>Nota aula: <input type ="range" class="notas" min="0.5" max="5" step="0.5" value="0.5"> </li>
-                <li>Nota pessoa: <input type ="range" class="notas" min="0.5" max="5" step="0.5" value="0.5"> </li>
-                </ul>
-                <footer>De sua nota</footer>
-            </div>
-        </section>
+        <h1 class="titulo-pagina">
+            Professores
+        </h1>
 
 
+        <!-- ========================================
+             CARROSSEL
+        ========================================= -->
+
+        <div class="professores-wrapper">
+
+
+            <!-- ========================================
+                 SETA ANTERIOR
+            ========================================= -->
+
+            <button
+                class="seta-carrossel seta-anterior"
+                id="professorAnterior"
+                aria-label="Professor anterior"
+            >
+                &#10094;
+            </button>
+
+
+
+            <!-- ========================================
+                 CONTAINER DOS PROFESSORES
+            ========================================= -->
+
+            <div class="professores-container">
+
+
+                <!-- ========================================
+                     PROFESSOR 1
+                ========================================= -->
+
+                <article class="professor-card">
+
+
+                    <!-- DADOS DO PROFESSOR -->
+
+                    <section class="dados-prof">
+
+                        <div class="foto-prof"></div>
+
+
+                        <div class="info-prof">
+
+                            <div>
+                                <strong>Nome:</strong>
+                                Hamilton
+                            </div>
+
+                            <div>
+                                <strong>Matéria:</strong>
+                                Eletrônica
+                            </div>
+
+                            <div>
+                                <strong>Formação:</strong>
+                                Engenharia Elétrica | Unicamp
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <!-- AVALIAÇÕES -->
+
+                    <section class="avaliacoes">
+
+
+                        <!-- MÉDIA GERAL -->
+
+                        <div class="avaliacao">
+
+                            <h2>
+                                Média geral
+                            </h2>
+
+                            <ul>
+
+                                <li>
+                                    Nota geral:
+                                    <span>5/5</span>
+                                </li>
+
+                                <li>
+                                    Nota aula:
+                                    <span>5/5</span>
+                                </li>
+
+                                <li>
+                                    Nota pessoa:
+                                    <span>5/5</span>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+
+
+                        <!-- SUA AVALIAÇÃO -->
+
+                        <div class="sua-nota">
+
+                            <h2>
+                                Sua avaliação
+                            </h2>
+
+                            <ul>
+
+                                <li>
+
+                                    <label for="nota-geral-1">
+                                        Nota geral:
+                                    </label>
+
+                                    <input
+                                        id="nota-geral-1"
+                                        type="range"
+                                        class="notas"
+                                        min="0.5"
+                                        max="5"
+                                        step="0.5"
+                                        value="0.5"
+                                    >
+
+                                </li>
+
+
+                                <li>
+
+                                    <label for="nota-aula-1">
+                                        Nota aula:
+                                    </label>
+
+                                    <input
+                                        id="nota-aula-1"
+                                        type="range"
+                                        class="notas"
+                                        min="0.5"
+                                        max="5"
+                                        step="0.5"
+                                        value="0.5"
+                                    >
+
+                                </li>
+
+
+                                <li>
+
+                                    <label for="nota-pessoa-1">
+                                        Nota pessoa:
+                                    </label>
+
+                                    <input
+                                        id="nota-pessoa-1"
+                                        type="range"
+                                        class="notas"
+                                        min="0.5"
+                                        max="5"
+                                        step="0.5"
+                                        value="0.5"
+                                    >
+
+                                </li>
+
+                            </ul>
+
+
+                            <footer>
+                                De sua nota
+                            </footer>
+
+                        </div>
+
+                    </section>
+
+                </article>
+
+
+
+                <!-- ========================================
+                     PROFESSOR 2
+                ========================================= -->
+
+                <article class="professor-card">
+
+
+                    <section class="dados-prof">
+
+                        <div class="foto-prof"></div>
+
+
+                        <div class="info-prof">
+
+                            <div>
+                                <strong>Nome:</strong>
+                                Bia Leite
+                            </div>
+
+                            <div>
+                                <strong>Matéria:</strong>
+                                Cálculo I
+                            </div>
+
+                            <div>
+                                <strong>Formação:</strong>
+                                Matemática | Puc-campinas
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <section class="avaliacoes">
+
+
+                        <!-- MÉDIA GERAL -->
+
+                        <div class="avaliacao">
+
+                            <h2>
+                                Média geral
+                            </h2>
+
+                            <ul>
+
+                                <li>
+                                    Nota geral:
+                                    <span>1.5/5</span>
+                                </li>
+
+                                <li>
+                                    Nota aula:
+                                    <span>2/5</span>
+                                </li>
+
+                                <li>
+                                    Nota pessoa:
+                                    <span>1/5</span>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+
+
+                        <!-- SUA AVALIAÇÃO -->
+
+                        <div class="sua-nota">
+
+                            <h2>
+                                Sua avaliação
+                            </h2>
+
+                            <ul>
+
+                                <li>
+
+                                    <label for="nota-geral-2">
+                                        Nota geral:
+                                    </label>
+
+                                    <input
+                                        id="nota-geral-2"
+                                        type="range"
+                                        class="notas"
+                                        min="0.5"
+                                        max="5"
+                                        step="0.5"
+                                        value="0.5"
+                                    >
+
+                                </li>
+
+
+                                <li>
+
+                                    <label for="nota-aula-2">
+                                        Nota aula:
+                                    </label>
+
+                                    <input
+                                        id="nota-aula-2"
+                                        type="range"
+                                        class="notas"
+                                        min="0.5"
+                                        max="5"
+                                        step="0.5"
+                                        value="0.5"
+                                    >
+
+                                </li>
+
+
+                                <li>
+
+                                    <label for="nota-pessoa-2">
+                                        Nota pessoa:
+                                    </label>
+
+                                    <input
+                                        id="nota-pessoa-2"
+                                        type="range"
+                                        class="notas"
+                                        min="0.5"
+                                        max="5"
+                                        step="0.5"
+                                        value="0.5"
+                                    >
+
+                                </li>
+
+                            </ul>
+
+
+                            <footer>
+                                De sua nota
+                            </footer>
+
+                        </div>
+
+                    </section>
+
+                </article>
+
+
+
+                <!-- ========================================
+                     PROFESSOR 3
+                ========================================= -->
+
+                <article class="professor-card">
+
+
+                    <section class="dados-prof">
+
+                        <div class="foto-prof"></div>
+
+
+                        <div class="info-prof">
+
+                            <div>
+                                <strong>Nome:</strong>
+                                Silvia
+                            </div>
+
+                            <div>
+                                <strong>Matéria:</strong>
+                                Programação
+                            </div>
+
+                            <div>
+                                <strong>Formação:</strong>
+                                Ciência da Computação | Unicamp
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <section class="avaliacoes">
+
+
+                        <!-- MÉDIA GERAL -->
+
+                        <div class="avaliacao">
+
+                            <h2>
+                                Média geral
+                            </h2>
+
+                            <ul>
+
+                                <li>
+                                    Nota geral:
+                                    <span>3.5/5</span>
+                                </li>
+
+                                <li>
+                                    Nota aula:
+                                    <span>4/5</span>
+                                </li>
+
+                                <li>
+                                    Nota pessoa:
+                                    <span>3/5</span>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+
+
+                        <!-- SUA AVALIAÇÃO -->
+
+                        <div class="sua-nota">
+
+                            <h2>
+                                Sua avaliação
+                            </h2>
+
+                            <ul>
+
+                                <li>
+
+                                    <label for="nota-geral-3">
+                                        Nota geral:
+                                    </label>
+
+                                    <input
+                                        id="nota-geral-3"
+                                        type="range"
+                                        class="notas"
+                                        min="0.5"
+                                        max="5"
+                                        step="0.5"
+                                        value="0.5"
+                                    >
+
+                                </li>
+
+
+                                <li>
+
+                                    <label for="nota-aula-3">
+                                        Nota aula:
+                                    </label>
+
+                                    <input
+                                        id="nota-aula-3"
+                                        type="range"
+                                        class="notas"
+                                        min="0.5"
+                                        max="5"
+                                        step="0.5"
+                                        value="0.5"
+                                    >
+
+                                </li>
+
+
+                                <li>
+
+                                    <label for="nota-pessoa-3">
+                                        Nota pessoa:
+                                    </label>
+
+                                    <input
+                                        id="nota-pessoa-3"
+                                        type="range"
+                                        class="notas"
+                                        min="0.5"
+                                        max="5"
+                                        step="0.5"
+                                        value="0.5"
+                                    >
+
+                                </li>
+
+                            </ul>
+
+
+                            <footer>
+                                De sua nota
+                            </footer>
+
+                        </div>
+
+                    </section>
+
+                </article>
+
+
+            </div>
+
+
+
+            <!-- ========================================
+                 SETA PRÓXIMA
+            ========================================= -->
+
+            <button
+                class="seta-carrossel seta-proximo"
+                id="proximoProfessor"
+                aria-label="Próximo professor"
+            >
+                &#10095;
+            </button>
+
+
+        </div>
 
     </main>
 
+
+
+    <!-- ========================================
+         JAVASCRIPT DO CARROSSEL
+    ========================================= -->
+
+    <script src="\src\scripts\np_script.js">
+    </script>
+
+
 </body>
+
 </html>
