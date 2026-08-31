@@ -1,79 +1,77 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>GURA</title>
 
-    <link rel="stylesheet" href="/src/styles/index_style.css">
-</head>
+    <link rel="stylesheet" href="src/styles/index_style.css" />
+  </head>
 
-<body>
-
+  <body>
+    <script>
+      try {
+        const session = JSON.parse(localStorage.getItem('authSession'));
+        if (!session || Date.now() > session.expiresAt) {
+          window.location.href = 'login.html';
+        }
+      } catch (e) {
+        window.location.href = 'login.html';
+      }
+    </script>
     <!-- NAVBAR -->
     <header class="navbar">
+      <div class="navbar-logo"></div>
 
-        <div class="navbar-logo"></div>
+      <nav class="navbar-menu">
+        <a href="#noticias">Notícias</a>
+        <a href="#gerenciador-grade">Gerenciador de grade</a>
+        <a href="/notas-professores.html">Professores</a>
+      </nav>
 
-        <nav class="navbar-menu">
-            <a href="#noticias">Notícias</a>
-            <a href="#gerenciador-grade">Gerenciador de grade</a>
-            <a href="/notas-professores.html">Professores</a>
-        </nav>
-
-        <div class="navbar-profile">
-            <div class="profile-picture"></div>
-        </div>
-
+      <div class="navbar-profile">
+        <div class="profile-picture"></div>
+      </div>
     </header>
-
 
     <!-- CONTEÚDO -->
     <main>
+      <!-- ÁREA DE BOAS-VINDAS -->
+      <section class="main">
+        <div class="welcome-column">
+          <div class="welcome-box">
+            <h1>Bem Vindo!</h1>
+          </div>
 
-        <!-- ÁREA DE BOAS-VINDAS -->
-        <section class="main">
-            <div class="welcome-column">
+          <div class="course-box">
+            <div class="course-info">
+              <h2>Resumo do Aluno</h2>
+              <div class="info-item">
+                <li class="info-label">Curso:</li>
+                <span class="info-value">Eng.Comp</span>
+              </div>
 
-                <div class="welcome-box">
-                    <h1>Bem Vindo!</h1>   
-                </div>
+              <div class="info-item">
+                <li class="info-label">Semestre:</li>
+                <span class="info-value">2º</span>
+              </div>
 
-                <div class="course-box">
-                    <div class="course-info">
-                        <h2>Resumo do Aluno</h2>
-                        <div class="info-item">
-                            <li class="info-label">Curso:</li>
-                            <span class="info-value">Eng.Comp</span>
-                        </div>
-
-                        <div class="info-item">
-                            <li class="info-label">Semestre:</li>
-                            <span class="info-value">2º</span>
-                        </div>
-
-                        <div class="info-item">
-                            <li class="info-label">Período:</li>
-                            <span class="info-value">Integral</span>
-                        </div>
-
-                    </div>
-
-                </div>
+              <div class="info-item">
+                <li class="info-label">Período:</li>
+                <span class="info-value">Integral</span>
+              </div>
             </div>
-            
-            <div class="news-box">
-                <h1>Notícias</h1>
-                <div class="content-box"></div>
-                <div class="content-box"></div>
-                <div class="content-box"></div>
-            </div>
-            
+          </div>
+        </div>
 
-        </section>
+        <div class="news-box">
+          <h1>Notícias</h1>
+          <div class="content-box"></div>
+          <div class="content-box"></div>
+          <div class="content-box"></div>
+        </div>
+      </section>
     </main>
-
-</body>
+  </body>
 </html>

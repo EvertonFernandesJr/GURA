@@ -1,98 +1,99 @@
-const TOKEN_EXPIRATION = 60 * 60 * 1000
+const TOKEN_EXPIRATION = 60 * 60 * 1000;
 
-async function hashPassword(password){
-    const encoder = new TextEncoder();
+async function hashPassword(password) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(password);
+  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
 
-    const data = encoder.encode(password);
-
-    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-
-    return Array.from(new Uint8Array(hashBuffer))
-        .map(byte => byte.toString(16).padStart(2, "0"))
-        .join("");
+  return Array.from(new Uint8Array(hashBuffer))
+    .map((byte) => byte.toString(16).padStart(2, "0"))
+    .join("");
 }
 
-function getUsers(){
-    return JSON.parse(localStorage.getItem("users")) || [];
+function getUsers() {
+  return JSON.parse(localStorage.getItem("users")) || [];
 }
 
-function saveUsers(){
-    localStorage.setItem("users", JSON.stringify(users));
+function saveUsers(users) {
+  localStorage.setItem("users", JSON.stringify(users));
 }
 
-async function register(email, password){
-    const users = getUsers();
+export async function register(name, email, password) {
+  const users = getUsers();
 
-    if(users.some(user => user.email === email)){
-        throw new Error("Usuario ja existente");
-    }
+  if (users.some((user) => user.email === email)) {
+    throw new Error("Usuário já existente");
+  }
 
-    const passwordHash = await hashPassword(password);
+  const passwordHash = await hashPassword(password);
 
-    const user = {
-        id: crypto.randomUUID(),
-        email,
-        passwordHash
-    };
+  const user = {
+    id: crypto.randomUUID(),
+    name,
+    email,
+    passwordHash,
+  };
 
-    users.push(user);
-    saveUsers(user);
+  users.push(user);
+  saveUsers(users);
 
-    return user;
+  return user;
 }
 
-async function login(email, password){
-    const users = getUsers();
+export async function login(email, password) {
+  const users = getUsers();
+  const user = users.find((u) => u.email === email);
 
-    const user = users.find(user => user.email === email);
+  if (!user) {
+    throw new Error("E-mail não encontrado");
+  }
 
-    if(!user){
-        throw new Error("Email invalido");
-    }
+  const passwordHash = await hashPassword(password);
 
-    const passwordHash = await hashPassword(password);
+  if (passwordHash !== user.passwordHash) {
+    throw new Error("Senha inválida");
+  }
 
-    if(passwordHash !== user.passwordHash){
-        throw new Error("Senha invalida");
-    }
+  const token = crypto.randomUUID();
 
-    const token = await crypto.randomUUID();
+  const session = {
+    token,
+    userId: user.id,
+    name: user.name,
+    email: user.email,
+    expiresAt: Date.now() + TOKEN_EXPIRATION,
+  };
 
-    const session = {
-        token,
-        userId: user.id,
-        expiresAt: Date.now() + TOKEN_EXPIRATION
-    };
-
-    localStorage.setItem("authSession", JSON.stringify(session));
-    return session
+  localStorage.setItem("authSession", JSON.stringify(session));
+  return session;
 }
 
-function getSession(){
-    const session = JSON.parse(
-        localStorage.getItem("authSession")
-    );
+export function getSession() {
+  const session = JSON.parse(localStorage.getItem("authSession"));
 
-    if (!session){
-        return null;
-    }
-    if(Date.now > session.expiresAt){
-        logout();
-        return null;
-    }
+  if (!session) {
+    return null;
+  }
 
+  if (Date.now() > session.expiresAt) {
+    logout();
+    return null;
+  }
+
+  return session;
 }
 
-function logout(){
-    localStorage.removeItem("authSession");
+export function logout() {
+  localStorage.removeItem("authSession");
 }
 
-function requireAuth(){
-    const session = getSession();
-    if(!session){
-        window.location.href = "login.html";
-        return null;
-    }
-    
-    return session;
+export function requireAuth() {
+  const session = getSession();
+
+  if (!session) {
+    window.location.href = "login.html";
+    return null;
+  }
+
+  return session;
 }
