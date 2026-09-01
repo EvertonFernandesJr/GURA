@@ -20,28 +20,54 @@
         </div>
     </header>
 
+    <!-- CARDS DE TEXTO PARA OS 4 PERÍODOS -->
     <div class="container-topo">
         <div class="grupo-esquerda">
-           <button class="item"><span>Periodo da Matrícula</button>
-           <button class="item"><span>Periodo de Planejado</button>
+            <div class="periodo-card">
+                <div class="periodo-texto">
+                    <strong>Periodo da Matrícula</strong>
+                    <span id="labelMatricula">Não definido</span>
+                </div>
+                <button class="btn-editar-modal" onclick="abrirModalId('modalMatricula')">✏️</button>
+            </div>
+
+            <div class="periodo-card">
+                <div class="periodo-texto">
+                    <strong>Periodo de Planejado</strong>
+                    <span id="labelPlanejado">Não definido</span>
+                </div>
+                <button class="btn-editar-modal" onclick="abrirModalId('modalPlanejado')">✏️</button>
+            </div>
         </div>   
+
         <div class="grupo-direita">
-            <button class="item"><span>Periodo de Atual</button>
-            <button class="item"><span>Periodo de Alteração</button>
+            <div class="periodo-card">
+                <div class="periodo-texto">
+                    <strong>Periodo de Atual</strong>
+                    <span id="labelAtual">Não definido</span>
+                </div>
+                <button class="btn-editar-modal" onclick="abrirModalId('modalAtual')">✏️</button>
+            </div>
+
+            <div class="periodo-card">
+                <div class="periodo-texto">
+                    <strong>Periodo de Alteração</strong>
+                    <span id="labelAlteracao">Não definido</span>
+                </div>
+                <button class="btn-editar-modal" onclick="abrirModalId('modalAlteracao')">✏️</button>
+            </div>
         </div>
     </div>
 
     <hr>
 
-    
     <div class="painel-matriculas-creditos">
         <div class="card-total-creditos">
             <span>Total de Créditos no Semestre</span>
             <h2>24 CR</h2>
         </div>
 
-  
-      <div class="lista-materias-matriculadas">
+        <div class="lista-materias-matriculadas">
             <div class="card-materia">
                 <span class="nome">Cálculo</span>
                 <span class="creditos">6 Créditos</span>
@@ -50,7 +76,6 @@
                 <span class="nome">Robótica</span>
                 <span class="creditos">4 Créditos</span>
             </div>
-        
             <div class="card-materia">
                 <span class="nome">Teologia</span>
                 <span class="creditos">2 Créditos</span>
@@ -65,6 +90,7 @@
             </div>
         </div>
     </div>
+
     <section class="painel-tabelas">
         <div class="coluna-tabela">
             <h2>Horários</h2>
@@ -81,6 +107,7 @@
                         <th>Quarta-feira</th>
                         <th>Quinta-feira</th>
                         <th>Sexta-feira</th>
+                    </tr>
                 </thead>
                 <tbody>
                     <tr>
@@ -146,18 +173,15 @@
             </table>
         </div>
     </section>
+
+    <!-- Modal Alterar Matéria de Aula -->
     <div id="modal" class="modal">
-
         <div class="modal-conteudo">
-            <div>
+            <div class="modal-cabecalho">
                 <h2>Alterar matéria</h2>
-                <p>Escolha a nova matéria para esse horário:</p>
+                <button class="fechar-modal" onclick="fecharModal()">&times;</button>
             </div>
-
-            <button class="fechar-modal" onclick="fecharModal()">
-                &times;
-            </button>
-        
+            <p style="padding: 10px 25px 0;">Escolha a nova matéria para esse horário:</p>
 
             <div class="informacoes-aula">
                 <div class="info">
@@ -171,153 +195,108 @@
             </div> 
             
             <div class="campo-materia">
-                <span>Discplina-Atual</span>
+                <span>Disciplina-Atual</span><br>
                 <strong id="materiaAtual">Calculo</strong>
             </div>
         
             <div class="campo-materia">
-                <label for="NovaMateria">
-                    Nova Disciplina
-                </label>
-
+                <label for="novaMateria">Nova Disciplina</label>
                 <select id="novaMateria">
-
-                    <option value="Calculo">
-                        Cálculo
-                    </option>
-
-                    <option value="Robotica">
-                        Robótica
-                    </option>
-
-                    <option value="Teologia">
-                        Teologia
-                    </option>
-
-                    <option value="PI: Des. Sistemas Web">
-                        PI: Des. Sistemas Web
-                    </option>
-
-                    <option value="Org. de Sistemas de Comp.">
-                        Org. de Sistemas de Comp.
-                    </option>
-
-                    <option value="Livre">
-                        Livre
-                    </option>
-
+                    <option value="Cálculo">Cálculo</option>   
+                    <option value="Robótica">Robótica</option>
+                    <option value="Teologia">Teologia</option>
+                    <option value="PI: Des. Sistemas Web">PI: Des. Sistemas Web</option>
+                    <option value="Org. de Sistemas de Comp.">Org. de Sistemas de Comp.</option>
+                    <option value="Livre">Livre</option>
                 </select>
             </div>
 
             <div class="creditos-nova">
-
                 <span>Créditos</span>
-
-                <strong id="creditosMateria">
-                    4 CR
-                </strong>
-
+                <strong id="creditosMateria">4 CR</strong>
             </div>
 
             <div class="modal-acoes">
-
-                <button
-                    class="btn-cancelar" 
-                    onclick="fecharModal()">
-                    Cancelar
-                </button>
-
-                <button 
-                    class="btn-confirmar"
-                    onclick="salvarAlteracao()">
-                    Salvar
-                </button>
+                <button class="btn-cancelar" onclick="fecharModal()">Cancelar</button>
+                <button class="btn-confirmar" onclick="salvarAlteracao()">Salvar</button>
             </div>   
         </div>
     </div>
+
+    <!-- MODAIS ESPECÍFICOS PARA CADA PERÍODO -->
+
+    <!-- 1. Modal Período da Matrícula -->
+    <div id="modalMatricula" class="modal">
+        <div class="modal-conteudo">
+            <div class="modal-cabecalho">
+                <h2>Editar Período da Matrícula</h2>
+                <button class="fechar-modal" onclick="fecharModalId('modalMatricula')">&times;</button>
+            </div>
+            <div class="campo-materia" style="margin-top: 20px;">
+                <label for="dataMatricula">Data da Matrícula</label>
+                <input type="date" id="dataMatricula">
+            </div>
+            <div class="modal-acoes">
+                <button class="btn-cancelar" onclick="fecharModalId('modalMatricula')">Cancelar</button>
+                <button class="btn-confirmar" onclick="salvarPeriodo('modalMatricula', 'dataMatricula', 'labelMatricula')">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Modal Período Planejado -->
+    <div id="modalPlanejado" class="modal">
+        <div class="modal-conteudo">
+            <div class="modal-cabecalho">
+                <h2>Editar Período Planejado</h2>
+                <button class="fechar-modal" onclick="fecharModalId('modalPlanejado')">&times;</button>
+            </div>
+            <div class="campo-materia" style="margin-top: 20px;">
+                <label for="dataPlanejado">Data Planejada</label>
+                <input type="date" id="dataPlanejado">
+            </div>
+            <div class="modal-acoes">
+                <button class="btn-cancelar" onclick="fecharModalId('modalPlanejado')">Cancelar</button>
+                <button class="btn-confirmar" onclick="salvarPeriodo('modalPlanejado', 'dataPlanejado', 'labelPlanejado')">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Modal Período Atual -->
+    <div id="modalAtual" class="modal">
+        <div class="modal-conteudo">
+            <div class="modal-cabecalho">
+                <h2>Editar Período Atual</h2>
+                <button class="fechar-modal" onclick="fecharModalId('modalAtual')">&times;</button>
+            </div>
+            <div class="campo-materia" style="margin-top: 20px;">
+                <label for="dataAtual">Data Atual</label>
+                <input type="date" id="dataAtual">
+            </div>
+            <div class="modal-acoes">
+                <button class="btn-cancelar" onclick="fecharModalId('modalAtual')">Cancelar</button>
+                <button class="btn-confirmar" onclick="salvarPeriodo('modalAtual', 'dataAtual', 'labelAtual')">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Modal Período de Alteração -->
+    <div id="modalAlteracao" class="modal">
+        <div class="modal-conteudo">
+            <div class="modal-cabecalho">
+                <h2>Editar Período de Alteração</h2>
+                <button class="fechar-modal" onclick="fecharModalId('modalAlteracao')">&times;</button>
+            </div>
+            <div class="campo-materia" style="margin-top: 20px;">
+                <label for="dataAlteracao">Data de Alteração</label>
+                <input type="date" id="dataAlteracao">
+            </div>
+            <div class="modal-acoes">
+                <button class="btn-cancelar" onclick="fecharModalId('modalAlteracao')">Cancelar</button>
+                <button class="btn-confirmar" onclick="salvarPeriodo('modalAlteracao', 'dataAlteracao', 'labelAlteracao')">Salvar</button>
+            </div>
+        </div>
+    </div>
     
-    <script>
-
-        let aulaSelecionada = null;
-
-        const creditosMaterias =  {
-            "Cálculo": 6,
-            "Robotica": 4,
-            "Teologia": 2,
-            "PI: Des. Sistemas Web": 6,
-            "PI: Des. Sistemas Web.P": 6,
-            "Org. de Sistemas de Comp.P": 6,
-            "Org. de Sistemas de Comp.": 6,
-            "Livre": 0
-        };
-
-        function alterarAula(celula) {
-
-            aulaSelecionada = celula;
-
-            let materiaAtual = celula.innerText.trim();
-
-            let linha = celula.parentElement;
-
-            let horario = linha.cells[0].innerText.trim();
-
-            let coluna = celula.cellIndex;
-    
-            let tabela = celula.closest("table");
-            let cabecalho = tabela.querySelectorAll("thead tr")[1];
-            let dia = cabecalho.cells[coluna - 1].innerText.trim();
-
-            document.getElementById("materiaAtual").innerText = materiaAtual;
-            document.getElementById("diaAula").innerText = dia;
-            document.getElementById("horarioAula").innerText = horario;
-
-            document.getElementById("novaMateria").value = materiaAtual;
-
-            document.getElementById("creditosMateria").innerText =
-                creditosMaterias[materiaAtual] + " CR";
-
-            document.getElementById("modal").style.display = "flex";
-        }
-
-
-        function salvarAlteracao() {
-
-            if (aulaSelecionada === null) {
-                return;
-            }
-
-            let novaMateria =
-                document.getElementById("novaMateria").value;
-
-            aulaSelecionada.innerText =
-                novaMateria;
-
-            fecharModal();
-
-        }
-
-
-        function fecharModal() {
-
-            document.getElementById("modal").style.display =
-                "none";
-
-            aulaSelecionada = null;
-
-        }
-
-
-        document.getElementById("modal").addEventListener(
-            "click",
-            function(event) {
-
-                if (event.target === this) {
-                    fecharModal();
-                }
-
-            }
-        );
-
-    </script>
+   <script src="gerenciador-grade.js"></script>
 </body>
 </html>
