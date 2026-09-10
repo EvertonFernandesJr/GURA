@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notícias Hoje</title>
+    <style>
+        :root {
+            --azul: #142d3d;
+            --laranja: #e56b3f;
+            --fundo: #f5f3ef;
+            --texto: #1c2b33;
+            --cinza: #71808a;
+            --borda: #dce1e2;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            color: var(--texto);
+            background: var(--fundo);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        header {
+            color: #fff;
+            background: var(--azul);
+        }
+
+        .topo,
+        nav,
+        main {
+            width: min(1100px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        .topo {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 27px 0 23px;
+        }
+
+        .logo {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--laranja);
+        }
+
+        .menu-button {
+            display: none;
+            color: #fff;
+            background: none;
+            border: 0;
+            font-size: 1.5rem;
+        }
+
+        nav {
+            display: flex;
+            gap: 28px;
+            padding: 0 0 17px;
+            color: #c4d0d5;
+            font-size: .78rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        nav a:hover,
+        nav .ativo {
+            color: #fff;
+            border-bottom: 2px solid var(--laranja);
+            padding-bottom: 8px;
+        }
+
+        main {
+            padding: 45px 0 70px;
+        }
+
+        .chamada {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 38px;
+            align-items: center;
+            padding-bottom: 43px;
+            border-bottom: 1px solid var(--borda);
+        }
+
+        .categoria {
+            margin: 0 0 10px;
+            color: var(--laranja);
+            font-size: .7rem;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin-top: 0;
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        h1 {
+            max-width: 500px;
+            margin-bottom: 15px;
+            font-size: clamp(2.1rem, 5vw, 3.8rem);
+            line-height: 1.03;
+        }
+
+        .resumo {
+            color: var(--cinza);
+            line-height: 1.6;
+        }
+
+        .chamada .resumo {
+            max-width: 410px;
+            margin-bottom: 27px;
+        }
+
+        .botao {
+            display: inline-block;
+            padding: 12px 20px;
+            color: #fff;
+            background: var(--laranja);
+            font-size: .8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .botao:hover {
+            background: #c9532f;
+        }
+
+        .espaco-imagem {
+            display: grid;
+            min-height: 145px;
+            place-items: center;
+            color: #89969b;
+            background: #dce2e1;
+            border: 1px dashed #9ba8a9;
+            font-size: .75rem;
+            text-transform: uppercase;
+        }
+
+        .espaco-imagem.grande {
+            min-height: 310px;
+        }
+
+        .ultimas {
+            padding-top: 38px;
+        }
+
+        .titulo-secao {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 22px;
+        }
+
+        .titulo-secao h2 {
+            margin-bottom: 0;
+            font-size: 1.8rem;
+        }
+
+        .titulo-secao a {
+            color: var(--laranja);
+            font-size: .8rem;
+            font-weight: bold;
+        }
+
+        .lista-noticias {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .noticia {
+            padding-bottom: 18px;
+            background: #fff;
+            border: 1px solid var(--borda);
+        }
+
+        .noticia .espaco-imagem {
+            margin-bottom: 19px;
+        }
+
+        .noticia .categoria,
+        .noticia h3,
+        .noticia .resumo {
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+
+        .noticia h3 {
+            margin-bottom: 8px;
+            font-size: 1.35rem;
+            line-height: 1.15;
+        }
+
+        .noticia .resumo {
+            margin-bottom: 0;
+            font-size: .86rem;
+        }
+
+        footer {
+            padding: 22px;
+            color: #c4d0d5;
+            background: var(--azul);
+            text-align: center;
+            font-size: .8rem;
+        }
+
+        @media (max-width: 700px) {
+            .topo,
+            nav,
+            main {
+                width: min(100% - 28px, 1100px);
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            nav {
+                gap: 19px;
+                overflow-x: auto;
+            }
+
+            .chamada,
+            .lista-noticias {
+                grid-template-columns: 1fr;
+            }
+
+            .chamada {
+                gap: 27px;
+            }
+
+            .espaco-imagem.grande {
+                min-height: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="topo">
+            <a class="logo" href="#">notícias<span>hoje</span></a>
+            <button class="menu-button" type="button" aria-label="Abrir menu">☰</button>
+        </div>
+
+        <nav aria-label="Menu principal">
+            <a class="ativo" href="#">Início</a>
+            <a href="#">Política</a>
+            <a href="#">Brasil</a>
+            <a href="#">Mundo</a>
+            <a href="#">Economia</a>
+            <a href="#">Esportes</a>
+            <a href="#">Cultura</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="chamada">
+            <div>
+                <p class="categoria">Destaque</p>
+                <h1>As principais notícias do dia em um só lugar</h1>
+                <p class="resumo">Acompanhe as informações mais importantes do Brasil e do mundo.</p>
+                <a class="botao" href="#">Leia mais</a>
+            </div>
+            <div class="espaco-imagem grande">Espaço para imagem</div>
+        </section>
+
+        <section class="ultimas">
+            <div class="titulo-secao">
+                <h2>Últimas notícias</h2>
+                <a href="#">Ver todas →</a>
+            </div>
+
+            <div class="lista-noticias">
+                <article class="noticia">
+                    <div class="espaco-imagem">Espaço para imagem</div>
+                    <p class="categoria">Brasil</p>
+                    <h3>Manchete da primeira notícia</h3>
+                    <p class="resumo">Adicione aqui um breve resumo para apresentar a notícia.</p>
+                </article>
+
+                <article class="noticia">
+                    <div class="espaco-imagem">Espaço para imagem</div>
+                    <p class="categoria">Mundo</p>
+                    <h3>Manchete da segunda notícia</h3>
+                    <p class="resumo">Adicione aqui um breve resumo para apresentar a notícia.</p>
+                </article>
+
+                <article class="noticia">
+                    <div class="espaco-imagem">Espaço para imagem</div>
+                    <p class="categoria">Tecnologia</p>
+                    <h3>Manchete da terceira notícia</h3>
+                    <p class="resumo">Adicione aqui um breve resumo para apresentar a notícia.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Notícias Hoje</p>
+    </footer>
+</body>
+</html>
