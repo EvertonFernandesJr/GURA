@@ -9,30 +9,13 @@
 
     <link rel="stylesheet" href="/src/styles/index_style.css">
     <script src="/src/services/profileModal.js" defer></script>
+    <script src="/src/services/injectNavbar.js" defer></script>
 </head>
 
 <body>
 
     <!-- NAVBAR -->
-    <header class="navbar">
-
-        <div class="navbar-logo"></div>
-
-        <nav class="navbar-menu">
-            <a href="#noticias">Notícias</a>
-            <a href="#gerenciador-grade">Gerenciador de grade</a>
-            <a href="/notas-professores.html">Professores</a>
-        </nav>
-
-        <div class="navbar-profile">
-            <div class="profile-picture">
-                <button id="profile-btn" style="position:absolute; height: 100%; width: 100%; cursor: pointer; opacity: 0;"></button>
-            </div>
-        </div>
-
-    </header>
-
-
+    <div id="header-nav"></div>
     <!-- CONTEÚDO -->
     <main>
 
@@ -73,21 +56,6 @@
                 <div class="content-box"></div>
                 <div class="content-box"></div>
             </div>
-
-            <div class="modal-overlay" id="modalProfile">
-                <div class="modal-profile">
-                    <div class="modal-conteudo">
-                        <button class="close-btn" id="closeBtn">&times;</button>
-                        <h2>Opções de perfil</h2>
-                        <p>teste</p>
-                        <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
-
-                    </div>
-                </div>
-            </div>
-            
-            
-            
 
         </section>
         

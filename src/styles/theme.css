@@ -1,21 +1,23 @@
 :root {
-/* --- BASE BRAND PALETTE --- */
-  --color-primary: #003695;
-  --color-secondary: #004ea5;
-  --color-accent: #d99b00; /* Darkened slightly for accessible contrast */
-  
-  /* --- SURFACES & CANVAS --- */
-  --color-bg-main: #f8fafc;
+  /* --- BASE BRAND PALETTE (aprimorada) --- */
+  --color-primary: #0b2e59;      /* azul-marinho profundo — confiança, institucional */
+  --color-primary-soft: #14477f; /* variação para hovers e gradações sutis */
+  --color-accent: #c98a2b;       /* dourado acinzentado — contraste elegante, não gritante */
+  --color-accent-soft: #ecd9b7;
+ 
+  /* --- SUPERFÍCIES E FUNDO --- */
+  --color-bg-main: #f6f7f9;
   --color-bg-surface: #ffffff;
-  --color-border: #e2e8f0;
-
-  /* --- DYNAMIC OKLCH TINTS --- */
-  --color-primary-light: oklch(from var(--color-primary) 0.96 0.02 h);
-  --color-primary-dark: oklch(from var(--color-primary) 0.20 0.08 h);
-  --color-primary-fade: oklch(from var(--color-primary) l c h / 0.12);
-
-  /* --- TYPOGRAPHY --- */
-  --color-text-main: #0f172a;
-  --color-text-muted: #475569;
+  --color-border: #e5e8ec;
+ 
+  /* --- TIPOGRAFIA --- */
+  --color-text-main: #10182b;
+  --color-text-muted: #5b6472;
   --color-text-on-primary: #ffffff;
+ 
+  /* --- SOMBRAS --- */
+  --shadow-nav: 0 1px 0 rgba(16, 24, 43, 0.04), 0 8px 24px -16px rgba(16, 24, 43, 0.18);
+ 
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Inter', sans-serif;
 }
