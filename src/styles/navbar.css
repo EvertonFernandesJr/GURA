@@ -29,6 +29,7 @@ body {
   align-items: center;
   gap: 10px;
   flex-shrink: 0;
+  text-decoration: none;
 }
  
 .navbar-logo .mark {
@@ -206,6 +207,24 @@ body {
   background-color: var(--color-bg-surface);
   box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.2);
   animation: aparecer 0.2s ease;
+}
+
+.modal-conteudo{
+  width: 100%;
+  box-sizing: border-box;
+  max-height: calc(100vh - 80px);
+  overflow: auto;
+  padding: 20px;
+  border-radius: 8px;
+}
+.modal-conteudo .close-btn {
+  display: block;
+  margin: 8px 0 16px auto; /* top/right/bottom/left: auto empurra para a direita */
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
 }
  
 /* --- Mobile --- */

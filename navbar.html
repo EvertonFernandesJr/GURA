@@ -12,7 +12,7 @@
 <body>
  
   <header class="navbar">
-    <div class="navbar-logo">
+    <a href="/index.html" class="navbar-logo" aria-label="Ir para a pagina inicial">
       <div class="mark">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M4 18V8.5L12 4l8 4.5V18" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -20,7 +20,7 @@
         </svg>
       </div>
       <div class="wordmark">Gu<span>Ra</span></div>
-    </div>
+    </a>
  
     <nav class="navbar-menu">
       <a href="/index.html">Inicio</a>
@@ -52,7 +52,9 @@
   <div class="modal-overlay" id="modalProfile">
     <div class="modal-profile">
       <div class="modal-conteudo">
-        <button class="close-btn" id="closeBtn">&times;</button>
+        <div class="modal-close">
+          <button class="close-btn" id="closeBtn">&times;</button>
+        </div>
         <h2>Opções de perfil</h2>
         <p>teste</p>
         <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
