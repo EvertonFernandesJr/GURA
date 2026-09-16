@@ -112,15 +112,17 @@ gruposEstrelas.forEach(function (grupo) {
 });
 
 /* ========================================
-   ENVIAR NOTA (GERA .JSON)
+   ENVIAR NOTA (JSON + LOCALSTORAGE)
 ========================================= */
+
+const CHAVE_STORAGE = "gura-avaliacoes";
 
 const botoesEnviar = document.querySelectorAll(".btn-enviar-nota");
 
 botoesEnviar.forEach(function (botao) {
 
     botao.addEventListener("click", function (evento) {
-        evento.preventDefault(); // evita o link "pular" a página
+        evento.preventDefault();
 
         const card = botao.closest(".professor-card");
         const nomeProfessor = card.dataset.nome;
@@ -136,7 +138,9 @@ botoesEnviar.forEach(function (botao) {
             avaliacao[grupo.dataset.tipo] = parseFloat(grupo.dataset.nota);
         });
 
-        // Gera o arquivo .json e dispara o download
+        salvarNoLocalStorage(nomeProfessor, avaliacao);
+
+        // Continua gerando o .json também, pra sua apresentação
         const conteudo = JSON.stringify(avaliacao, null, 2);
         const blob = new Blob([conteudo], { type: "application/json" });
         const url = URL.createObjectURL(blob);
@@ -152,6 +156,50 @@ botoesEnviar.forEach(function (botao) {
     });
 
 });
+
+
+/* ========================================
+   SALVAR / LER DO LOCALSTORAGE
+========================================= */
+
+function salvarNoLocalStorage(nomeProfessor, avaliacao) {
+
+    // Pega tudo que já existe guardado (ou um objeto vazio, se for a 1ª vez)
+    const todasAvaliacoes = JSON.parse(localStorage.getItem(CHAVE_STORAGE)) || {};
+
+    // Atualiza só a entrada desse professor
+    todasAvaliacoes[nomeProfessor] = avaliacao;
+
+    // Guarda de volta como texto
+    localStorage.setItem(CHAVE_STORAGE, JSON.stringify(todasAvaliacoes));
+
+}
+
+function carregarNotasSalvas() {
+
+    const todasAvaliacoes = JSON.parse(localStorage.getItem(CHAVE_STORAGE)) || {};
+
+    document.querySelectorAll(".professor-card").forEach(function (card) {
+
+        const nomeProfessor = card.dataset.nome;
+        const avaliacaoSalva = todasAvaliacoes[nomeProfessor];
+
+        if (!avaliacaoSalva) return; // esse professor ainda não foi avaliado
+
+        card.querySelectorAll(".grupo-estrelas").forEach(function (grupo) {
+            const tipo = grupo.dataset.tipo;
+            const nota = avaliacaoSalva[tipo] || 0;
+
+            grupo.dataset.nota = nota;
+            atualizarVisual(grupo, nota);
+        });
+
+    });
+
+}
+
+// Roda assim que a página carrega, pra restaurar notas de visitas anteriores
+carregarNotasSalvas();
 
 
 /* ========================================
