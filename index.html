@@ -6,10 +6,12 @@
 
     <title>GURA</title>
 
-    <link rel="stylesheet" href="src/styles/index_style.css" />
-  </head>
+    <link rel="stylesheet" href="/src/styles/index_style.css">
+    <script src="/src/services/profileModal.js" defer></script>
+    <script src="/src/services/injectNavbar.js" defer></script>
+</head>
 
-  <body>
+<body>
     <script>
       try {
         const session = JSON.parse(localStorage.getItem('authSession'));
@@ -20,21 +22,9 @@
         window.location.href = 'login.html';
       }
     </script>
+
     <!-- NAVBAR -->
-    <header class="navbar">
-      <div class="navbar-logo"></div>
-
-      <nav class="navbar-menu">
-        <a href="#noticias">Notícias</a>
-        <a href="/gerenciador-grade">Gerenciador de grade</a>
-        <a href="/notas-professores.html">Professores</a>
-      </nav>
-
-      <div class="navbar-profile">
-        <div class="profile-picture"></div>
-      </div>
-    </header>
-
+    <div id="header-nav"></div>
     <!-- CONTEÚDO -->
     <main>
       <!-- ÁREA DE BOAS-VINDAS -->
@@ -62,16 +52,16 @@
                 <span class="info-value">Integral</span>
               </div>
             </div>
-          </div>
-        </div>
+            
+            <div class="news-box">
+                <h1>Notícias</h1>
+                <div class="content-box"></div>
+                <div class="content-box"></div>
+                <div class="content-box"></div>
+            </div>
 
-        <div class="news-box">
-          <h1>Notícias</h1>
-          <div class="content-box"></div>
-          <div class="content-box"></div>
-          <div class="content-box"></div>
-        </div>
-      </section>
+        </section>
+        
     </main>
   </body>
 </html>
