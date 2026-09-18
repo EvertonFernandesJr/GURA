@@ -13,6 +13,16 @@
 </head>
 
 <body>
+    <script>
+      try {
+        const session = JSON.parse(localStorage.getItem('authSession'));
+        if (!session || Date.now() > session.expiresAt) {
+          window.location.href = 'login.html';
+        }
+      } catch (e) {
+        window.location.href = 'login.html';
+      }
+    </script>
 
     <!-- NAVBAR -->
     <div id="header-nav"></div>
