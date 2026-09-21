@@ -1,0 +1,23 @@
+document.addEventListener("DOMContentLoaded", function(){
+  fetch("navbar.html")
+  .then(response => response.text())
+  .then(data =>{
+    document.getElementById("header-nav").innerHTML = data;
+    document.dispatchEvent(new Event("navbar:loaded"));
+  })
+})
+
+document.addEventListener("navbar:loaded", () => {
+  const links = document.querySelectorAll(".navbar-menu a");
+  const currentPath = window.location.pathname.split("/").pop() || "index.html";
+ 
+  links.forEach(link => {
+    const linkPath = link.getAttribute("href").split("/").pop();
+ 
+    link.classList.remove("active");
+ 
+    if (linkPath === currentPath) {
+      link.classList.add("active");
+    }
+  });
+});
