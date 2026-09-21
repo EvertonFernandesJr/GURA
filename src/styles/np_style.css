@@ -386,19 +386,17 @@ body {
 
 
 /* ========================================
-   LISTAS
+   LISTAS (MÉDIA GERAL)
 ======================================== */
 
-.avaliacao ul,
-.sua-nota ul {
+.avaliacao ul {
 
     padding-left: 2vw;
 
 }
 
 
-.avaliacao li,
-.sua-nota li {
+.avaliacao li {
 
     color: var(--color-text-main);
 
@@ -425,45 +423,61 @@ body {
 
 
 /* ========================================
-   SLIDERS
+   NOTAS DO USUÁRIO (ESTRELAS)
 ======================================== */
 
-.sua-nota li {
+.notas-usuario {
+
+    padding-left: 0;
+
+}
+
+.grupo-estrelas {
 
     display: flex;
 
     align-items: center;
 
-    gap: 0.7vw;
+    gap: 0.6vw;
 
     white-space: nowrap;
 
+    margin-bottom: 1.8vh;
+
 }
 
-
-.sua-nota label {
+.label-nota {
 
     color: var(--color-text-main);
 
+    font-size: 1.65vw;
+
+    min-width: 7vw;
+
 }
 
+.estrela {
 
-.notas {
+    width: 1.8vw;
 
-    width: 13vw;
+    min-width: 24px;
+
+    height: 1.8vw;
+
+    min-height: 24px;
 
     cursor: pointer;
-
-    accent-color: var(--color-secondary);
 
 }
 
 
 /* ========================================
-   "DE SUA NOTA"
+   "DE SUA NOTA" (BOTÃO / LINK)
 ======================================== */
 
-.sua-nota footer {
+.btn-enviar-nota {
+
+    display: inline-block;
 
     margin-top: 1vh;
 
@@ -475,6 +489,60 @@ body {
 
     font-weight: bold;
 
+    text-decoration: none;
+
+    cursor: pointer;
+
+}
+
+.btn-enviar-nota:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* ========================================
+   TOAST "NOTA ENVIADA!"
+======================================== */
+
+.toast {
+
+    position: fixed;
+
+    bottom: 3vh;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background-color: var(--color-primary);
+
+    color: var(--color-text-on-primary);
+
+    padding: 1.5vh 2vw;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+
+    z-index: 999;
+
+    animation: subirToast 0.3s ease;
+
+}
+
+@keyframes subirToast {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 20px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
 }
 
 
@@ -577,26 +645,39 @@ body {
 
     /* TEXTOS */
 
-    .avaliacao li,
-    .sua-nota li {
+    .avaliacao li {
 
         font-size: 4vw;
 
     }
 
 
-    /* SLIDERS */
+    /* ESTRELAS */
 
-    .notas {
+    .estrela {
 
-        width: 30vw;
+        width: 6vw;
+
+        min-width: 22px;
+
+        height: 6vw;
+
+        min-height: 22px;
+
+    }
+
+    .label-nota {
+
+        font-size: 4vw;
+
+        min-width: 20vw;
 
     }
 
 
-    /* FOOTER */
+    /* BOTÃO "DE SUA NOTA" */
 
-    .sua-nota footer {
+    .btn-enviar-nota {
 
         font-size: 4vw;
 
