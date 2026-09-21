@@ -26,8 +26,11 @@ body {
     width: 100%;
     min-height: 46.1vh;
     display: grid;
+    /* two equal columns: left (welcome) and right (news) */
     grid-template-columns: 1fr 1fr;
     gap: 3vw;
+    position: relative; /* positioning context for absolute news-box */
+    /* no extra padding here; news-box will be positioned to the right half */
 }
 
 
@@ -96,10 +99,11 @@ body {
 
     gap: 4.3vh;
 
-    & li {
-        font-size: 2.3vw;
-        margin-left: 4.4vw;
-    }
+}
+
+.course-info li {
+    font-size: 2.3vw;
+    margin-left: 4.4vw;
 }
 
 .info-item {
@@ -125,11 +129,18 @@ body {
 }
 
 .news-box{
-    width: auto;
-    min-height: 90%;
-    margin: 4.8vh 2.4vw 0 2.4vw ;
+    position: absolute;
+    top: 4.8vh; 
+    left: 50%; 
+    box-sizing: border-box;
+    width: calc(50% - 2.4vw); 
+    padding: 0.8vh 1.2vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+    bottom: 4.8vh;
     border-radius: 10px;
-    
+    z-index: 5;
 }
 .news-box h1{
     color: var(--color-accent);
@@ -141,13 +152,31 @@ body {
     position: relative;
     z-index: 1;
 
-    margin-top: 1vh;
-    margin-bottom: 3vh;
-    width: 80%;
-    height: 29%;
+    margin: 0;
+    width: 100%;
+
+    flex: 1 1 0;
+    min-height: 0; 
 
     background-color: var(--color-bg-surface);
     border-radius: 8px;
     box-shadow: 0px 4px 15px -3px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 900px) {
+    .main {
+        grid-template-columns: 1fr;
+        padding-right: 0;
+    }
+
+    .news-box {
+        position: static;
+        width: 100%;
+        margin: 1.5vh 2.4vw 0 2.4vw;
+    }
+
+    .course-box {
+        margin: 4.8vh 2.4vw 0 2.4vw;
+    }
 }
 
