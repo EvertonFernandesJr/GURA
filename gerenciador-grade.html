@@ -5,21 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciador de Grade</title>
     <link rel="stylesheet" href="/src/styles/gerenciador-grade.css">
+    <link rel="stylesheet" href="/src/styles/navbar.css">
     <script src="/src/services/gerenciador-grade.js" defer></script>
+    <script src="/src/services/profileModal.js"></script>
+    <script src="/src/services/injectNavbar.js"></script>
 </head>
 <body>
-    <header class="navbar">
-        <div class="navbar-logo"></div>
-        <nav class="navbar-menu">
-            <a href="#noticias">Notícias</a>
-            <a href="/gerenciador-grade.html">Gerenciador de grade</a>
-            <a href="/notas-professores.html">Professores</a>
-        </nav>
-        <div class="navbar-profile">
-            <div class="profile-head"></div>
-            <div class="profile-body"></div>
-        </div>
-    </header>
+    <div id="header-nav"></div>
 
     <!-- CARDS DE TEXTO PARA OS 4 PERÍODOS -->
     <div class="container-topo">
