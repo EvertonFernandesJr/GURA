@@ -55,7 +55,7 @@ mostrarProfessor();
 
 const gruposEstrelas = document.querySelectorAll(".grupo-estrelas");
 
-// Atualiza visualmente as 5 imagens de um grupo, dado um valor (ex: 3.5)
+// Atualiza visualmente as 5 imagens e o texto numérico de um grupo, dado um valor (ex: 3.5)
 function atualizarVisual(grupo, valor) {
     const estrelas = grupo.querySelectorAll(".estrela");
 
@@ -70,6 +70,11 @@ function atualizarVisual(grupo, valor) {
             estrela.src = "/src/images/starempty.png";
         }
     });
+
+    const valorNota = grupo.querySelector(".valor-nota");
+    if (valorNota) {
+        valorNota.textContent = `${valor}/5`;
+    }
 }
 
 gruposEstrelas.forEach(function (grupo) {
@@ -112,7 +117,7 @@ gruposEstrelas.forEach(function (grupo) {
 });
 
 /* ========================================
-   ENVIAR NOTA (JSON + LOCALSTORAGE)
+   ENVIAR NOTA (LOCALSTORAGE)
 ========================================= */
 
 const CHAVE_STORAGE = "gura-avaliacoes";
@@ -140,19 +145,34 @@ botoesEnviar.forEach(function (botao) {
 
         salvarNoLocalStorage(nomeProfessor, avaliacao);
 
-        // Continua gerando o .json também, pra sua apresentação
-        const conteudo = JSON.stringify(avaliacao, null, 2);
-        const blob = new Blob([conteudo], { type: "application/json" });
-        const url = URL.createObjectURL(blob);
-
-        const linkDownload = document.createElement("a");
-        linkDownload.href = url;
-        linkDownload.download = `avaliacao-${nomeProfessor}.json`;
-        linkDownload.click();
-
-        URL.revokeObjectURL(url);
-
         mostrarToast(`Nota enviada para ${nomeProfessor}!`);
+    });
+
+});
+
+
+/* ========================================
+   LIMPAR NOTA
+========================================= */
+
+const botoesLimpar = document.querySelectorAll(".btn-limpar-nota");
+
+botoesLimpar.forEach(function (botao) {
+
+    botao.addEventListener("click", function (evento) {
+        evento.preventDefault();
+
+        const card = botao.closest(".professor-card");
+        const nomeProfessor = card.dataset.nome;
+
+        const grupos = card.querySelectorAll(".grupo-estrelas");
+
+        grupos.forEach(function (grupo) {
+            grupo.dataset.nota = 0;
+            atualizarVisual(grupo, 0);
+        });
+
+        mostrarToast(`Nota de ${nomeProfessor} foi limpa!`);
     });
 
 });
@@ -203,7 +223,7 @@ carregarNotasSalvas();
 
 
 /* ========================================
-   TOAST "NOTA ENVIADA!"
+   TOAST DE FEEDBACK
 ========================================= */
 
 function mostrarToast(mensagem) {

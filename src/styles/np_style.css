@@ -509,18 +509,40 @@ main {
 
 }
 
+.valor-nota {
+
+    margin-left: 0.4vw;
+
+    font-weight: bold;
+
+    color: var(--color-primary);
+
+    font-size: 1.5vw;
+
+    min-width: 3.2vw;
+
+}
+
 
 /* ========================================
-   "DE SUA NOTA" (BOTÃO / LINK)
+   AÇÕES: "DE SUA NOTA" / "LIMPAR NOTA"
 ======================================== */
 
-.btn-enviar-nota {
+.acoes-nota {
 
-    display: inline-block;
+    display: flex;
+
+    align-items: center;
+
+    gap: 1.5vw;
 
     margin-top: 1vh;
 
     margin-left: 2vw;
+
+}
+
+.btn-enviar-nota {
 
     color: var(--color-secondary);
 
@@ -540,9 +562,33 @@ main {
 
 }
 
+.btn-limpar-nota {
+
+    color: var(--color-text-main);
+
+    opacity: 0.65;
+
+    font-size: 1.4vw;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+}
+
+.btn-limpar-nota:hover {
+
+    opacity: 1;
+
+    text-decoration: underline;
+
+}
+
 
 /* ========================================
-   TOAST "NOTA ENVIADA!"
+   TOAST "NOTA ENVIADA!" / "NOTA LIMPA!"
 ======================================== */
 
 .toast {
@@ -714,9 +760,25 @@ main {
     }
 
 
-    /* BOTÃO "DE SUA NOTA" */
+    .valor-nota {
 
-    .btn-enviar-nota {
+        font-size: 4vw;
+
+        min-width: 8vw;
+
+    }
+
+
+    /* AÇÕES */
+
+    .acoes-nota {
+
+        gap: 4vw;
+
+    }
+
+    .btn-enviar-nota,
+    .btn-limpar-nota {
 
         font-size: 4vw;
 
