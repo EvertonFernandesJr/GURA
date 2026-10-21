@@ -2,9 +2,9 @@ document.addEventListener("navbar:loaded", function () {
   const profileButton = document.getElementById("profile-btn");
   const modal = document.getElementById("modalProfile");
   const closeButton = document.getElementById("closeBtn");
-  const formulario = document.getElementById("profileForm");
+  const saveButton = document.getElementById("saveBtn");
 
-  if (!profileButton || !modal || !closeButton) {
+  if (!profileButton || !modal || !closeButton || !saveButton) {
     return;
   }
 
@@ -31,19 +31,23 @@ document.addEventListener("navbar:loaded", function () {
     }
   });
 
-  formulario.addEventListener('submit', function(event) {
-    // Evita o comportamento padrão do HTML de recarregar a página
-    event.preventDefault();
+  saveButton.addEventListener('click', function() {
+    const session = JSON.parse(localStorage.getItem("authSession") || "null");
+    const users = JSON.parse(localStorage.getItem("users") || "[]");
 
-    // Se você já tiver um id salvo anteriormente, pode mantê-lo, 
-    // caso contrário, gera um ID único (ex: timestamp atual)
-    const usuarioExistente = JSON.parse(localStorage.getItem('usuario'));
-    const idUsuario = usuarioExistente ? usuarioExistente.id : Date.now();
+    if(!session?.userId){
+      alert("Sua sessão não foi encontrada. Faça Login novamente.")
+      return
+    }
 
-    // Captura os valores diretamente dos inputs/selects do formulário
-    const usuario = {
-        id: idUsuario,
-        nome: document.getElementById('Nome').value,
+    const user = users.find((item) => item.id === session.userId);
+
+    if(!user){
+      alert("Não foi possível encontrar sua conta.");
+      return;
+    }
+
+       user.profile = {
         sexo: document.getElementById('Sexo').value,
         curso: document.getElementById('Curso').value,
         turno: document.getElementById('Turno').value,
@@ -51,9 +55,15 @@ document.addEventListener("navbar:loaded", function () {
     };
 
     // Salva o objeto convertido em string JSON no localStorage
-    localStorage.setItem('usuario', JSON.stringify(usuario));
+    localStorage.setItem('users', JSON.stringify(users));
+    
 
-    console.log("Usuário salvo com sucesso direto do form:", usuario);
+    console.log("Usuário salvo com sucesso direto do form:", user);
     alert("Dados salvos com sucesso!");
+
+    const evento = new CustomEvent("perfilAtualizado");
+    document.dispatchEvent(evento);
+
+    closeModal();
   });
 });

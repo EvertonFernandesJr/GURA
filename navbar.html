@@ -30,13 +30,13 @@
     </nav>
  
     <div class="navbar-right">
-      <div class="navbar-lang">
+      <button class="navbar-lang" id="logout-btn" type="button" aria-label="Sair da conta">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/>
           <path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9s1.3-6.4 3.8-9Z" stroke="currentColor" stroke-width="1.6"/>
         </svg>
-        <span class="lang-label">Pt</span>
-      </div>
+        <span class="lang-label">Sair</span>
+      </button>
  
       <div class="navbar-divider"></div>
  
@@ -57,8 +57,6 @@
         </div>
         <h1>Opções de perfil</h1>
         <form id="profileForm">
-          <label for="Nome">Nome:</label>
-          <input type="text" id="Nome" name="Nome" placeholder="Digite seu nome">
           <label for="Sexo">Sexo:</label>
           <select id="Sexo" name="Sexo">
             <option value="masculino">Masculino</option>
@@ -70,7 +68,7 @@
             <option value="eng_comp">Eng. Comp</option>
             <option value="eng_prod">Eng. Produção</option>
             <option value="economia">Economia</option>
-            <option valur="eng_quimica">Eng. Química</option>
+            <option value="eng_quimica">Eng. Química</option>
           </select>
           <label for="Turno">Turno:</label>
           <select id="Turno" name="Turno">
