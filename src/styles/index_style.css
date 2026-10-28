@@ -101,6 +101,15 @@ body {
 
 }
 
+.info-lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4.3vh;
+}
+
 .course-info li {
     font-size: 2.3vw;
     margin-left: 4.4vw;
@@ -142,8 +151,13 @@ body {
     border-radius: 10px;
     z-index: 5;
 }
-.news-box h1{
+.news-box h2{
     color: var(--color-accent);
+    font-family: Arial, sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+    line-height: normal;
+    margin: 0.67em 0;
 }
 
 /* Caixas */

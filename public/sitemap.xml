@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Troque SEU-DOMINIO.com pelo endereço real do site quando publicar. -->
+<!-- Só entram as páginas públicas; as telas internas usam noindex. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://SEU-DOMINIO.com/login.html</loc>
+  </url>
+</urlset>

@@ -3,13 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>GURA</title>
+    <title>GURA | Início do aluno</title>
+    <meta name="description" content="GURA: grade universitária e review acadêmico. Veja suas notícias, avalie professores e monte sua grade horária.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#0b2e59">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="GURA">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="GURA | Início do aluno">
+    <meta property="og:description" content="GURA: grade universitária e review acadêmico. Veja suas notícias, avalie professores e monte sua grade horária.">
+    <meta property="og:image" content="/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
 
     <link rel="stylesheet" href="/src/styles/index_style.css">
-    <script src="/src/services/profileModal.js" defer></script>
-    <script src="/src/services/injectNavbar.js" defer></script>
-    <script src="/src/services/mainPage.js" defer></script>
+    <link rel="stylesheet" href="/src/styles/navbar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script type="module" src="/src/services/profileModal.js"></script>
+    <script type="module" src="/src/services/injectNavbar.js"></script>
+    <script type="module" src="/src/services/mainPage.js"></script>
 </head>
 
 <body>
@@ -25,7 +39,91 @@
     </script>
 
     <!-- NAVBAR -->
-    <div id="header-nav"></div>
+    <header class="navbar">
+    <a href="/index.html" class="navbar-logo" aria-label="Ir para a pagina inicial">
+      <div class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 18V8.5L12 4l8 4.5V18" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8 18v-6h8v6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="wordmark">Gu<span>Ra</span></div>
+    </a>
+ 
+    <nav class="navbar-menu">
+      <a href="/index.html">Início</a>
+      <a href="/index.html#noticias">Notícias</a>
+      <a href="/gerenciador-grade.html">Grade</a>
+      <a href="/notas-professores.html">Professores</a>
+    </nav>
+ 
+    <div class="navbar-right">
+      <button class="navbar-lang" id="logout-btn" type="button" aria-label="Sair da conta">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9s1.3-6.4 3.8-9Z" stroke="currentColor" stroke-width="1.6"/>
+        </svg>
+        <span class="lang-label">Sair</span>
+      </button>
+ 
+      <div class="navbar-divider"></div>
+ 
+      <div class="navbar-profile">
+        <div class="profile-picture">
+          TS
+          <button type="button" id="profile-btn" aria-label="Abrir menu de perfil"></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+    <div class="modal-overlay" id="modalProfile">
+    <div class="modal-profile">
+      <div class="modal-conteudo">
+        <div class="modal-close">
+          <button type="button" class="close-btn" id="closeBtn" aria-label="Fechar">&times;</button>
+        </div>
+        <h2>Opções de perfil</h2>
+        <form id="profileForm">
+          <label for="Sexo">Sexo:</label>
+          <select id="Sexo" name="Sexo">
+            <option value="masculino">Masculino</option>
+            <option value="feminino">Feminino</option>
+            <option value="outro">Outro</option>
+          </select>
+          <label for="Curso">Curso:</label>
+          <select id="Curso" name="Curso">
+            <option value="eng_comp">Eng. Comp</option>
+            <option value="eng_prod">Eng. Produção</option>
+            <option value="economia">Economia</option>
+            <option value="eng_quimica">Eng. Química</option>
+          </select>
+          <label for="Turno">Turno:</label>
+          <select id="Turno" name="Turno">
+            <option value="matutino">Matutino</option>
+            <option value="vespertino">Vespertino</option>
+            <option value="integral">Integral</option>
+            <option value="noturno">Noturno</option>
+          </select>
+          <label for="Periodo">Período:</label>
+          <select id="Periodo" name="Periodo">
+            <option value="1">1º</option>
+            <option value="2">2º</option>
+            <option value="3">3º</option>
+            <option value="4">4º</option>
+            <option value="5">5º</option>
+            <option value="6">6º</option>
+            <option value="7">7º</option>
+            <option value="8">8º</option>
+            <option value="9">9º</option>
+            <option value="10">10º</option>
+          </select>
+        </form>
+        <button type="button" class="save-btn" id="saveBtn">Salvar</button>
+        <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+      </div>
+    </div>
+  </div>
     <!-- CONTEÚDO -->
     <main>
       <!-- ÁREA DE BOAS-VINDAS -->
@@ -41,30 +139,32 @@
               <p id="profileMissingMessage" hidden>
                 Coloque suas informações no seu perfil antes de continuar!
               </p>
-              <div id="studentSummary">
-                <div class="info-item">
-                  <li class="info-label">Curso:</li>
-                  <span class="info-value" id="curso"></span>
-                </div>
+              <ul class="info-lista" id="studentSummary">
+              <li class="info-item">
+                <span class="info-label">Curso:</span>
+                <span class="info-value" id="curso"></span>
+              </li>
 
-                <div class="info-item">
-                  <li class="info-label">Período:</li>
-                  <span class="info-value" id="periodo"></span>
-                </div>
+              <li class="info-item">
+                <span class="info-label">Período:</span>
+                <span class="info-value" id="periodo"></span>
+              </li>
 
-                <div class="info-item">
-                  <li class="info-label">Turno:</li>
-                  <span class="info-value" id="turno"></span>
-                </div>
-              </div>
+              <li class="info-item">
+                <span class="info-label">Turno:</span>
+                <span class="info-value" id="turno"></span>
+              </li>
+              </ul>
             </div>
             
-            <div class="news-box">
-                <h1>Notícias</h1>
+            <div class="news-box" id="noticias">
+                <h2>Notícias</h2>
                 <div class="content-box"></div>
                 <div class="content-box"></div>
                 <div class="content-box"></div>
             </div>
+          </div>
+        </div>
 
         </section>
         

@@ -81,3 +81,6 @@ window.onclick = function(event) {
         }
     });
 };
+
+// Necessário porque o script é um módulo: os onclick do HTML precisam enxergar estas funções.
+Object.assign(window, { abrirModalId, fecharModalId, salvarPeriodo, alterarAula, salvarAlteracao, fecharModal });

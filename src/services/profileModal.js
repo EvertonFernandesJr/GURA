@@ -1,4 +1,4 @@
-document.addEventListener("navbar:loaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
   const profileButton = document.getElementById("profile-btn");
   const modal = document.getElementById("modalProfile");
   const closeButton = document.getElementById("closeBtn");
