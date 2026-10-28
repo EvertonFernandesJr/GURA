@@ -54,7 +54,6 @@ document.addEventListener("navbar:loaded", function () {
         periodo: document.getElementById('Periodo').value
     };
 
-    // Salva o objeto convertido em string JSON no localStorage
     localStorage.setItem('users', JSON.stringify(users));
     
 
