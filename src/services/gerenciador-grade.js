@@ -547,3 +547,4 @@ function materiasNaGradeSugerida() {
 }
 
 document.addEventListener("DOMContentLoaded", iniciar);
+document.addEventListener("perfilAtualizado", iniciar);
