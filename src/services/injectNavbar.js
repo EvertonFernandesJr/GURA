@@ -8,6 +8,12 @@ document.addEventListener("DOMContentLoaded", function(){
 })
 
 document.addEventListener("navbar:loaded", () => {
+  const logoutButton = document.getElementById("logout-btn");
+  logoutButton.addEventListener("click", () => {
+    localStorage.removeItem("authSession");
+    window.location.href = "/login.html";
+  });
+
   const links = document.querySelectorAll(".navbar-menu a");
   const currentPath = window.location.pathname.split("/").pop() || "index.html";
  

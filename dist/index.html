@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>GURA</title>
+
+    <script src="/src/services/profileModal.js" defer></script>
+    <script src="/src/services/injectNavbar.js" defer></script>
+    <script src="/src/services/mainPage.js" defer></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-DgGfFR4K.css">
+</head>
+
+<body>
+    <script>
+      try {
+        const session = JSON.parse(localStorage.getItem('authSession'));
+        if (!session || Date.now() > session.expiresAt) {
+          window.location.href = 'login.html';
+        }
+      } catch (e) {
+        window.location.href = 'login.html';
+      }
+    </script>
+
+    <!-- NAVBAR -->
+    <div id="header-nav"></div>
+    <!-- CONTEÚDO -->
+    <main>
+      <!-- ÁREA DE BOAS-VINDAS -->
+      <section class="main">
+        <div class="welcome-column">
+          <div class="welcome-box">
+            <h1>Bem Vindo!</h1>
+          </div>
+
+          <div class="course-box">
+            <div class="course-info" id="courseInfo">
+              <h2>Resumo do Aluno</h2>
+              <p id="profileMissingMessage" hidden>
+                Coloque suas informações no seu perfil antes de continuar!
+              </p>
+              <div id="studentSummary">
+                <div class="info-item">
+                  <li class="info-label">Curso:</li>
+                  <span class="info-value" id="curso"></span>
+                </div>
+
+                <div class="info-item">
+                  <li class="info-label">Período:</li>
+                  <span class="info-value" id="periodo"></span>
+                </div>
+
+                <div class="info-item">
+                  <li class="info-label">Turno:</li>
+                  <span class="info-value" id="turno"></span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="news-box">
+                <h1>Notícias</h1>
+                <div class="content-box"></div>
+                <div class="content-box"></div>
+                <div class="content-box"></div>
+            </div>
+
+        </section>
+        
+    </main>
+  </body>
+</html>
