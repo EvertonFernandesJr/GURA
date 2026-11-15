@@ -7,6 +7,10 @@
       "periodo": 10,
       "carga_horaria": 19,
       "formacao": "Administração | UFSCar",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Engenharia Química"
+      ],
       "aulas_por_semana": 1,
       "media_nota_avaliacao": {
         "nota_geral": 1.5,
@@ -37,6 +41,10 @@
       "periodo": 3,
       "carga_horaria": 114,
       "formacao": "Estatística | Unicamp",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Economia"
+      ],
       "aulas_por_semana": 6,
       "media_nota_avaliacao": {
         "nota_geral": 2.0,
@@ -83,6 +91,11 @@
       "periodo": 6,
       "carga_horaria": 114,
       "formacao": "Sistemas de Informação | FEI",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Engenharia Química",
+        "Engenharia de Produção"
+      ],
       "aulas_por_semana": 6,
       "media_nota_avaliacao": {
         "nota_geral": 1.5,
@@ -129,6 +142,9 @@
       "periodo": 1,
       "carga_horaria": 76,
       "formacao": "Matemática | UFSCar",
+      "cursos_lecionados": [
+        "Engenharia da Computação"
+      ],
       "aulas_por_semana": 4,
       "media_nota_avaliacao": {
         "nota_geral": 1.5,
@@ -163,6 +179,11 @@
       "periodo": 8,
       "carga_horaria": 114,
       "formacao": "Engenharia de Computação | UFABC",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Economia",
+        "Engenharia de Produção"
+      ],
       "aulas_por_semana": 6,
       "media_nota_avaliacao": {
         "nota_geral": 5.0,
@@ -209,6 +230,9 @@
       "periodo": 7,
       "carga_horaria": 68,
       "formacao": "Administração | PUC-Campinas",
+      "cursos_lecionados": [
+        "Engenharia da Computação"
+      ],
       "aulas_por_semana": 4,
       "media_nota_avaliacao": {
         "nota_geral": 4.5,
@@ -243,6 +267,10 @@
       "periodo": 6,
       "carga_horaria": 114,
       "formacao": "Engenharia de Computação | Unicamp",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Economia"
+      ],
       "aulas_por_semana": 6,
       "media_nota_avaliacao": {
         "nota_geral": 4.5,
@@ -289,6 +317,9 @@
       "periodo": 5,
       "carga_horaria": 76,
       "formacao": "Engenharia de Computação | Insper",
+      "cursos_lecionados": [
+        "Engenharia da Computação"
+      ],
       "aulas_por_semana": 4,
       "media_nota_avaliacao": {
         "nota_geral": 3.5,
@@ -323,6 +354,9 @@
       "periodo": 4,
       "carga_horaria": 38,
       "formacao": "Engenharia Civil | FEI",
+      "cursos_lecionados": [
+        "Engenharia da Computação"
+      ],
       "aulas_por_semana": 2,
       "media_nota_avaliacao": {
         "nota_geral": 3.5,
@@ -353,6 +387,11 @@
       "periodo": 7,
       "carga_horaria": 19,
       "formacao": "Administração | FEI",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Engenharia Química",
+        "Engenharia de Produção"
+      ],
       "aulas_por_semana": 1,
       "media_nota_avaliacao": {
         "nota_geral": 2.0,
@@ -383,6 +422,11 @@
       "periodo": 2,
       "carga_horaria": 76,
       "formacao": "Ciência da Computação | PUC-Campinas",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Economia",
+        "Engenharia Química"
+      ],
       "aulas_por_semana": 4,
       "media_nota_avaliacao": {
         "nota_geral": 3.0,
@@ -417,6 +461,12 @@
       "periodo": 8,
       "carga_horaria": 76,
       "formacao": "Ciência da Computação | Unicamp",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Engenharia Química",
+        "Engenharia de Produção",
+        "Economia"
+      ],
       "aulas_por_semana": 4,
       "media_nota_avaliacao": {
         "nota_geral": 0.5,
@@ -451,6 +501,11 @@
       "periodo": 1,
       "carga_horaria": 96,
       "formacao": "Sistemas de Informação | PUC-Campinas",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Engenharia de Produção",
+        "Engenharia Química"
+      ],
       "aulas_por_semana": 5,
       "media_nota_avaliacao": {
         "nota_geral": 1.0,
@@ -489,6 +544,10 @@
       "periodo": 10,
       "carga_horaria": 54,
       "formacao": "Pedagogia | Unicamp",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Economia"
+      ],
       "aulas_por_semana": 3,
       "media_nota_avaliacao": {
         "nota_geral": 1.0,
@@ -523,6 +582,9 @@
       "periodo": 8,
       "carga_horaria": 19,
       "formacao": "Engenharia de Produção | FEI",
+      "cursos_lecionados": [
+        "Engenharia da Computação"
+      ],
       "aulas_por_semana": 1,
       "media_nota_avaliacao": {
         "nota_geral": 1.5,
@@ -553,6 +615,9 @@
       "periodo": 5,
       "carga_horaria": 91,
       "formacao": "Sistemas de Informação | USP",
+      "cursos_lecionados": [
+        "Engenharia da Computação"
+      ],
       "aulas_por_semana": 5,
       "media_nota_avaliacao": {
         "nota_geral": 3.0,
@@ -591,6 +656,9 @@
       "periodo": 2,
       "carga_horaria": 114,
       "formacao": "Ciência da Computação | Unicamp",
+      "cursos_lecionados": [
+        "Engenharia da Computação"
+      ],
       "aulas_por_semana": 6,
       "media_nota_avaliacao": {
         "nota_geral": 4.0,
@@ -637,6 +705,9 @@
       "periodo": 3,
       "carga_horaria": 38,
       "formacao": "Filosofia | Unicamp",
+      "cursos_lecionados": [
+        "Engenharia da Computação"
+      ],
       "aulas_por_semana": 2,
       "media_nota_avaliacao": {
         "nota_geral": 2.5,
@@ -667,6 +738,10 @@
       "periodo": 3,
       "carga_horaria": 129,
       "formacao": "Engenharia Elétrica | Unicamp",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Economia"
+      ],
       "aulas_por_semana": 7,
       "media_nota_avaliacao": {
         "nota_geral": 3.0,
@@ -717,6 +792,11 @@
       "periodo": 5,
       "carga_horaria": 114,
       "formacao": "Sistemas de Informação | PUC-Campinas",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Engenharia de Produção",
+        "Economia"
+      ],
       "aulas_por_semana": 6,
       "media_nota_avaliacao": {
         "nota_geral": 1.5,
@@ -763,6 +843,10 @@
       "periodo": 6,
       "carga_horaria": 76,
       "formacao": "Ciência da Computação | PUC-Campinas",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Economia"
+      ],
       "aulas_por_semana": 4,
       "media_nota_avaliacao": {
         "nota_geral": 4.5,
@@ -797,6 +881,12 @@
       "periodo": 1,
       "carga_horaria": 114,
       "formacao": "Sistemas de Informação | Unicamp",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Engenharia Química",
+        "Engenharia de Produção",
+        "Economia"
+      ],
       "aulas_por_semana": 6,
       "media_nota_avaliacao": {
         "nota_geral": 4.5,
@@ -843,6 +933,11 @@
       "periodo": 5,
       "carga_horaria": 91,
       "formacao": "Física Aplicada | PUC-Campinas",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Engenharia de Produção",
+        "Economia"
+      ],
       "aulas_por_semana": 5,
       "media_nota_avaliacao": {
         "nota_geral": 1.0,
@@ -881,6 +976,11 @@
       "periodo": 4,
       "carga_horaria": 129,
       "formacao": "Engenharia de Computação | Mackenzie",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Engenharia de Produção",
+        "Engenharia Química"
+      ],
       "aulas_por_semana": 7,
       "media_nota_avaliacao": {
         "nota_geral": 1.5,
@@ -931,6 +1031,12 @@
       "periodo": 1,
       "carga_horaria": 114,
       "formacao": "Engenharia de Controle e Automação | Mackenzie",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Economia",
+        "Engenharia Química",
+        "Engenharia de Produção"
+      ],
       "aulas_por_semana": 6,
       "media_nota_avaliacao": {
         "nota_geral": 4.5,
@@ -977,6 +1083,12 @@
       "periodo": 10,
       "carga_horaria": 54,
       "formacao": "Ciências da Religião | USP",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Engenharia de Produção",
+        "Economia",
+        "Engenharia Química"
+      ],
       "aulas_por_semana": 3,
       "media_nota_avaliacao": {
         "nota_geral": 2.0,
@@ -1011,6 +1123,10 @@
       "periodo": 10,
       "carga_horaria": 60,
       "formacao": "Administração | ITA",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Engenharia Química"
+      ],
       "aulas_por_semana": 1,
       "media_nota_avaliacao": {
         "nota_geral": 3.5,
@@ -1041,6 +1157,9 @@
       "periodo": 9,
       "carga_horaria": 119,
       "formacao": "Gestão de Projetos | Unicamp",
+      "cursos_lecionados": [
+        "Engenharia da Computação"
+      ],
       "aulas_por_semana": 1,
       "media_nota_avaliacao": {
         "nota_geral": 4.0,
@@ -1071,6 +1190,9 @@
       "periodo": 6,
       "carga_horaria": 76,
       "formacao": "Administração | Insper",
+      "cursos_lecionados": [
+        "Engenharia da Computação"
+      ],
       "aulas_por_semana": 4,
       "media_nota_avaliacao": {
         "nota_geral": 2.5,
@@ -1105,6 +1227,12 @@
       "periodo": 4,
       "carga_horaria": 76,
       "formacao": "Matemática | Mackenzie",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Economia",
+        "Engenharia Química",
+        "Engenharia de Produção"
+      ],
       "aulas_por_semana": 4,
       "media_nota_avaliacao": {
         "nota_geral": 5.0,
@@ -1139,6 +1267,11 @@
       "periodo": 3,
       "carga_horaria": 76,
       "formacao": "Engenharia Civil | Mackenzie",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Engenharia de Produção",
+        "Engenharia Química"
+      ],
       "aulas_por_semana": 4,
       "media_nota_avaliacao": {
         "nota_geral": 3.0,
@@ -1173,6 +1306,12 @@
       "periodo": 4,
       "carga_horaria": 91,
       "formacao": "Física | UFABC",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Economia",
+        "Engenharia Química",
+        "Engenharia de Produção"
+      ],
       "aulas_por_semana": 5,
       "media_nota_avaliacao": {
         "nota_geral": 1.0,
@@ -1219,6 +1358,9 @@
       "periodo": 5,
       "carga_horaria": 114,
       "formacao": "Ciência da Computação | PUC-Campinas",
+      "cursos_lecionados": [
+        "Engenharia da Computação"
+      ],
       "aulas_por_semana": 6,
       "media_nota_avaliacao": {
         "nota_geral": 3.0,
@@ -1265,6 +1407,11 @@
       "periodo": 6,
       "carga_horaria": 96,
       "formacao": "Sistemas de Informação | PUC-Campinas",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Economia",
+        "Engenharia de Produção"
+      ],
       "aulas_por_semana": 5,
       "media_nota_avaliacao": {
         "nota_geral": 5.0,
@@ -1311,6 +1458,9 @@
       "periodo": 3,
       "carga_horaria": 76,
       "formacao": "Engenharia Física | UFABC",
+      "cursos_lecionados": [
+        "Engenharia da Computação"
+      ],
       "aulas_por_semana": 4,
       "media_nota_avaliacao": {
         "nota_geral": 3.0,
@@ -1345,6 +1495,11 @@
       "periodo": 1,
       "carga_horaria": 51,
       "formacao": "Engenharia de Produção | PUC-Campinas",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Economia",
+        "Engenharia de Produção"
+      ],
       "aulas_por_semana": 3,
       "media_nota_avaliacao": {
         "nota_geral": 2.0,
@@ -1379,6 +1534,9 @@
       "periodo": 9,
       "carga_horaria": 76,
       "formacao": "Engenharia de Computação | USP",
+      "cursos_lecionados": [
+        "Engenharia da Computação"
+      ],
       "aulas_por_semana": 4,
       "media_nota_avaliacao": {
         "nota_geral": 3.0,
@@ -1413,6 +1571,11 @@
       "periodo": 1,
       "carga_horaria": 35,
       "formacao": "Ciências Sociais | UFSCar",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Engenharia de Produção",
+        "Economia"
+      ],
       "aulas_por_semana": 2,
       "media_nota_avaliacao": {
         "nota_geral": 3.5,
@@ -1443,6 +1606,9 @@
       "periodo": 10,
       "carga_horaria": 119,
       "formacao": "Administração | UFABC",
+      "cursos_lecionados": [
+        "Engenharia da Computação"
+      ],
       "aulas_por_semana": 1,
       "media_nota_avaliacao": {
         "nota_geral": 1.5,
@@ -1473,6 +1639,9 @@
       "periodo": 9,
       "carga_horaria": 95,
       "formacao": "Sistemas de Informação | FEI",
+      "cursos_lecionados": [
+        "Engenharia da Computação"
+      ],
       "aulas_por_semana": 5,
       "media_nota_avaliacao": {
         "nota_geral": 4.0,
@@ -1511,6 +1680,10 @@
       "periodo": 4,
       "carga_horaria": 114,
       "formacao": "Sistemas de Informação | UFABC",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Economia"
+      ],
       "aulas_por_semana": 6,
       "media_nota_avaliacao": {
         "nota_geral": 4.0,
@@ -1557,6 +1730,10 @@
       "periodo": 3,
       "carga_horaria": 53,
       "formacao": "Engenharia Física | UFABC",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Economia"
+      ],
       "aulas_por_semana": 3,
       "media_nota_avaliacao": {
         "nota_geral": 4.5,
@@ -1599,6 +1776,9 @@
       "periodo": 8,
       "carga_horaria": 91,
       "formacao": "Ciência da Computação | UFABC",
+      "cursos_lecionados": [
+        "Engenharia da Computação"
+      ],
       "aulas_por_semana": 5,
       "media_nota_avaliacao": {
         "nota_geral": 1.0,
@@ -1637,6 +1817,9 @@
       "periodo": 10,
       "carga_horaria": 95,
       "formacao": "Engenharia de Computação | UFABC",
+      "cursos_lecionados": [
+        "Engenharia da Computação"
+      ],
       "aulas_por_semana": 5,
       "media_nota_avaliacao": {
         "nota_geral": 2.0,
@@ -1683,6 +1866,9 @@
       "periodo": 7,
       "carga_horaria": 76,
       "formacao": "Engenharia Eletrônica | UFABC",
+      "cursos_lecionados": [
+        "Engenharia da Computação"
+      ],
       "aulas_por_semana": 4,
       "media_nota_avaliacao": {
         "nota_geral": 2.0,
@@ -1717,6 +1903,9 @@
       "periodo": 1,
       "carga_horaria": 38,
       "formacao": "Engenharia Mecânica | PUC-Campinas",
+      "cursos_lecionados": [
+        "Engenharia da Computação"
+      ],
       "aulas_por_semana": 2,
       "media_nota_avaliacao": {
         "nota_geral": 5.0,
@@ -1747,6 +1936,10 @@
       "periodo": 2,
       "carga_horaria": 38,
       "formacao": "Ciências da Religião | UFSCar",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Engenharia Química"
+      ],
       "aulas_por_semana": 2,
       "media_nota_avaliacao": {
         "nota_geral": 3.5,
@@ -1777,6 +1970,12 @@
       "periodo": 8,
       "carga_horaria": 76,
       "formacao": "Sistemas de Informação | FEI",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Engenharia de Produção",
+        "Engenharia Química",
+        "Economia"
+      ],
       "aulas_por_semana": 4,
       "media_nota_avaliacao": {
         "nota_geral": 3.0,
@@ -1811,6 +2010,9 @@
       "periodo": 7,
       "carga_horaria": 76,
       "formacao": "Sistemas de Informação | Insper",
+      "cursos_lecionados": [
+        "Engenharia da Computação"
+      ],
       "aulas_por_semana": 4,
       "media_nota_avaliacao": {
         "nota_geral": 3.5,
@@ -1845,6 +2047,9 @@
       "periodo": 4,
       "carga_horaria": 53,
       "formacao": "Engenharia Civil | Insper",
+      "cursos_lecionados": [
+        "Engenharia da Computação"
+      ],
       "aulas_por_semana": 3,
       "media_nota_avaliacao": {
         "nota_geral": 1.5,
@@ -1879,6 +2084,10 @@
       "periodo": 7,
       "carga_horaria": 76,
       "formacao": "Ciência da Computação | Insper",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Economia"
+      ],
       "aulas_por_semana": 4,
       "media_nota_avaliacao": {
         "nota_geral": 4.0,
@@ -1913,6 +2122,12 @@
       "periodo": 2,
       "carga_horaria": 114,
       "formacao": "Matemática | Insper",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Economia",
+        "Engenharia Química",
+        "Engenharia de Produção"
+      ],
       "aulas_por_semana": 6,
       "media_nota_avaliacao": {
         "nota_geral": 1.5,
@@ -1959,6 +2174,11 @@
       "periodo": 7,
       "carga_horaria": 76,
       "formacao": "Engenharia Eletrônica | Unicamp",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Engenharia Química",
+        "Engenharia de Produção"
+      ],
       "aulas_por_semana": 4,
       "media_nota_avaliacao": {
         "nota_geral": 5.0,
@@ -1993,6 +2213,12 @@
       "periodo": 2,
       "carga_horaria": 134,
       "formacao": "Ciência da Computação | UFSCar",
+      "cursos_lecionados": [
+        "Engenharia da Computação",
+        "Economia",
+        "Engenharia Química",
+        "Engenharia de Produção"
+      ],
       "aulas_por_semana": 7,
       "media_nota_avaliacao": {
         "nota_geral": 3.0,
