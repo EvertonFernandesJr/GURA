@@ -12,6 +12,7 @@ export default defineConfig({
         login: resolve(__dirname, 'login.html'),
         grade: resolve(__dirname, 'gerenciador-grade.html'),
         professores: resolve(__dirname, 'notas-professores.html'),
+        noticias: resolve(__dirname, 'noticias.html'),
       },
     },
   },
