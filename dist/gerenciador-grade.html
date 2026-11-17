@@ -7,11 +7,19 @@
     <script src="/src/services/gerenciador-grade.js" defer></script>
     <script src="/src/services/profileModal.js"></script>
     <script src="/src/services/injectNavbar.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/grade-hDYSv0ia.css">
+  <link rel="stylesheet" crossorigin href="/assets/grade-BiHQD5EZ.css">
   <link rel="stylesheet" crossorigin href="/assets/navbar-DLTDojOq.css">
 </head>
 <body>
     <div id="header-nav"></div>
+
+    <!-- DADOS DO ALUNO (preenchidos via localStorage) -->
+    <div class="info-aluno" id="infoAluno">
+        <span class="chip" id="chipCurso">Curso: —</span>
+        <span class="chip" id="chipPeriodo">Período: —</span>
+        <span class="chip" id="chipTurno">Turno: —</span>
+    </div>
+    <p class="aviso-aluno" id="avisoAluno" hidden></p>
 
     <!-- CARDS DE TEXTO PARA OS 4 PERÍODOS -->
     <div class="container-topo">
@@ -57,113 +65,56 @@
     <div class="painel-matriculas-creditos">
         <div class="card-total-creditos">
             <span>Total de Créditos no Semestre</span>
-            <h2>24 CR</h2>
+            <h2 id="totalCreditos">0 CR</h2>
         </div>
 
-        <div class="lista-materias-matriculadas">
-            <div class="card-materia">
-                <span class="nome">Cálculo</span>
-                <span class="creditos">6 Créditos</span>
-            </div>
-            <div class="card-materia">
-                <span class="nome">Robótica</span>
-                <span class="creditos">4 Créditos</span>
-            </div>
-            <div class="card-materia">
-                <span class="nome">Teologia</span>
-                <span class="creditos">2 Créditos</span>
-            </div>
-            <div class="card-materia">
-                <span class="nome">PI: Des. Sistemas Web</span>
-                <span class="creditos">6 Créditos</span>
-            </div>
-            <div class="card-materia">
-                <span class="nome">Org. de Sistemas de Comp.</span>
-                <span class="creditos">6 Créditos</span>
-            </div>
-        </div>
+        <div class="lista-materias-matriculadas" id="listaMateriasMatriculadas"></div>
     </div>
 
     <section class="painel-tabelas">
         <div class="coluna-tabela">
-            <h2>Horários</h2>
-            <table border="1">
-                <caption>Horarios De Aulas</caption>
-                <thead>
-                    <tr>
-                        <th rowspan="2">Horários</th>
-                        <th colspan="5">Dias da Semana</th>
-                    </tr>
-                    <tr>
-                        <th>Segunda-feira</th>
-                        <th>Terça-feira</th>
-                        <th>Quarta-feira</th>
-                        <th>Quinta-feira</th>
-                        <th>Sexta-feira</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>8h-9:40h</td>
-                        <td class="aula" onclick="alterarAula(this)">Org. de Sistemas de Comp.</td>
-                        <td class="aula" onclick="alterarAula(this)">Cálculo</td>
-                        <td class="aula" onclick="alterarAula(this)">Org. de Sistemas de Comp.</td>
-                        <td class="aula" onclick="alterarAula(this)">Livre</td>
-                        <td class="aula" onclick="alterarAula(this)">Teologia</td>
-                    </tr>
-                    <tr>
-                        <td>9:55h-11:30h</td>
-                        <td class="aula" onclick="alterarAula(this)">PI: Des. Sistemas Web</td>
-                        <td class="aula" onclick="alterarAula(this)">Robótica</td>
-                        <td class="aula" onclick="alterarAula(this)">PI: Des. Sistemas Web</td>
-                        <td class="aula" onclick="alterarAula(this)">Livre</td>
-                        <td class="aula" onclick="alterarAula(this)">Cálculo</td>
-                    </tr>
-                    <tr>
-                        <td>11:45h-13:15h</td>
-                        <td class="aula" onclick="alterarAula(this)">Almoço.</td>
-                        <td class="aula" onclick="alterarAula(this)">Almoço</td>
-                        <td class="aula" onclick="alterarAula(this)">Almoço</td>
-                        <td class="aula" onclick="alterarAula(this)">Livre</td>
-                        <td class="aula" onclick="alterarAula(this)">Almoço</td>
-                    </tr>
-                    <tr>
-                        <td>13:15h-15:00h</td>
-                        <td class="aula" onclick="alterarAula(this)">Org. de Sistemas de Comp.P</td>
-                        <td class="aula" onclick="alterarAula(this)">Livre</td>
-                        <td class="aula" onclick="alterarAula(this)">Livre</td>
-                        <td class="aula" onclick="alterarAula(this)">Livre</td>
-                        <td class="aula" onclick="alterarAula(this)">Cálculo</td>
-                    </tr>
-                    <tr>
-                        <td>15:00h-16:50h</td>
-                        <td class="aula" onclick="alterarAula(this)">PI: Des. Sistemas Web.P</td>
-                        <td class="aula" onclick="alterarAula(this)">Robótica</td>
-                        <td class="aula" onclick="alterarAula(this)">Livre</td>
-                        <td class="aula" onclick="alterarAula(this)">Livre</td>
-                        <td class="aula" onclick="alterarAula(this)">Livre</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="cabecalho-coluna">
+                <h2>Horários</h2>
+                <button class="btn-restaurar" onclick="restaurarSugestao()" title="Refaz a grade com base nos horários dos professores">↺ Restaurar sugestão</button>
+            </div>
+            <div class="tabela-scroll">
+                <table border="1">
+                    <caption>Horarios De Aulas</caption>
+                    <thead>
+                        <tr>
+                            <th rowspan="2">Horários</th>
+                            <th colspan="5">Dias da Semana</th>
+                        </tr>
+                        <tr>
+                            <th>Segunda-feira</th>
+                            <th>Terça-feira</th>
+                            <th>Quarta-feira</th>
+                            <th>Quinta-feira</th>
+                            <th>Sexta-feira</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoGrade"></tbody>
+                </table>
+            </div>
         </div>
         <div class="coluna-tabela">
-            <h2>Matérias do Curso</h2>
-            <table border="1">
-                <caption>Matérias do curso</caption>
-                <thead>
-                    <tr>
-                        <th>Nome da matéria</th>
-                        <th>Semestre</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>Calculo</td><td>Segundo Semestre</td></tr>
-                    <tr><td>Robotica</td><td>Segundo Semestre</td></tr>
-                    <tr><td>Teologia</td><td>Segundo Semestre</td></tr>
-                    <tr><td>Pi: Desenvolvimento de Sistemas Web</td><td>Segundo Semestre</td></tr>
-                    <tr><td>Organizacao de Sitemas De Computacao</td><td>Segundo Semestre</td></tr>
-                </tbody>
-            </table>
+            <div class="cabecalho-coluna">
+                <h2>Matérias do Curso</h2>
+            </div>
+            <div class="tabela-scroll">
+                <table border="1">
+                    <caption>Matérias do curso</caption>
+                    <thead>
+                        <tr>
+                            <th>Nome da matéria</th>
+                            <th>Semestre</th>
+                            <th>Créditos</th>
+                            <th>Na grade</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoMaterias"></tbody>
+                </table>
+            </div>
         </div>
     </section>
 
@@ -194,20 +145,15 @@
         
             <div class="campo-materia">
                 <label for="novaMateria">Nova Disciplina</label>
-                <select id="novaMateria">
-                    <option value="Cálculo">Cálculo</option>   
-                    <option value="Robótica">Robótica</option>
-                    <option value="Teologia">Teologia</option>
-                    <option value="PI: Des. Sistemas Web">PI: Des. Sistemas Web</option>
-                    <option value="Org. de Sistemas de Comp.">Org. de Sistemas de Comp.</option>
-                    <option value="Livre">Livre</option>
-                </select>
+                <select id="novaMateria"></select>
             </div>
 
             <div class="creditos-nova">
                 <span>Créditos</span>
                 <strong id="creditosMateria">4 CR</strong>
             </div>
+
+            <p class="aviso-modal" id="avisoModal" hidden></p>
 
             <div class="modal-acoes">
                 <button class="btn-cancelar" onclick="fecharModal()">Cancelar</button>
