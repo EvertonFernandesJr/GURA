@@ -2,13 +2,8 @@
 // CONFIGURAÇÕES
 // ============================================================
 
-// Onde o professores.json fica servido. Ajuste se necessário (o primeiro que responder é usado).
-const URLS_PROFESSORES = [
-    "/src/data/professores.json",
-    "/src/services/professores.json",
-    "/professores.json",
-    "professores.json"
-];
+// Base única de professores, compartilhada com a página de avaliações.
+const URLS_PROFESSORES = ["./professores.json"];
 
 const CURSOS = {
     eng_comp: "Engenharia da Computação",
@@ -19,21 +14,25 @@ const CURSOS = {
 
 const DIAS = ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira"];
 
-// Integral e matutino usam a mesma grade (diurna). Noturno: 19h às 23h.
+// Cada célula representa uma aula de 50 minutos. Os horários diurnos
+// seguem as janelas de disponibilidade do professores.json.
+function criarSlots(inicio, fim) {
+    const formatar = m => `${String(Math.floor(m / 60)).padStart(2, "0")}:${String(m % 60).padStart(2, "0")}`;
+    const resultado = [];
+    for (let m = paraMinutos(inicio); m + 50 <= paraMinutos(fim); m += 50) {
+        const a = formatar(m), b = formatar(m + 50);
+        resultado.push({ rotulo: `${a} - ${b}`, inicio: a, fim: b });
+    }
+    return resultado;
+}
+
 const GRADES_HORARIO = {
     matutino: [
-        { rotulo: "8h-9:40h",      inicio: "08:00", fim: "09:40" },
-        { rotulo: "9:55h-11:30h",  inicio: "09:55", fim: "11:30" },
-        { rotulo: "11:45h-13:15h", inicio: "11:45", fim: "13:15", intervalo: "Almoço" },
-        { rotulo: "13:15h-15:00h", inicio: "13:15", fim: "15:00" },
-        { rotulo: "15:00h-16:50h", inicio: "15:00", fim: "16:50" }
+        ...criarSlots("08:00", "11:20"),
+        { rotulo: "11:20 - 13:15", inicio: "11:20", fim: "13:15", intervalo: "Almoço" },
+        ...criarSlots("13:15", "17:25")
     ],
-    noturno: [
-        { rotulo: "19h-20h", inicio: "19:00", fim: "20:00" },
-        { rotulo: "20h-21h", inicio: "20:00", fim: "21:00" },
-        { rotulo: "21h-22h", inicio: "21:00", fim: "22:00" },
-        { rotulo: "22h-23h", inicio: "22:00", fim: "23:00" }
-    ]
+    noturno: criarSlots("19:00", "23:00")
 };
 
 const PERIODOS = {
@@ -96,7 +95,19 @@ function lerStorage(storage, chave) {
     return { ...u, email: u.email || (chave.includes("@") ? chave : undefined) };
 }
 
+function lerStorageJson(storage, chave) {
+    try { return JSON.parse(storage.getItem(chave)); } catch { return null; }
+}
+
 function obterUsuarioLogado() {
+    // Prioriza a sessão real utilizada pelo login e pelo modal de perfil.
+    const sessao = lerStorageJson(localStorage, "authSession");
+    if (sessao?.userId) {
+        const usuarios = lerStorageJson(localStorage, "users");
+        return Array.isArray(usuarios)
+            ? usuarios.find(u => u.id === sessao.userId && u.profile?.curso) || null
+            : null;
+    }
     const chavesSessao = ["currentUser", "usuarioLogado", "loggedUser", "loggedInUser",
                           "sessionUser", "session", "user", "usuario"];
     for (const storage of [localStorage, sessionStorage]) {
@@ -150,24 +161,17 @@ function paraMinutos(hhmm) {
     return h * 60 + m;
 }
 
-// Janela do professor -> índice do slot da grade com maior sobreposição
-function slotDaJanela(janela) {
+// Uma janela de 100 minutos cobre duas aulas, e não apenas uma.
+function slotsDaJanela(janela) {
     const ini = paraMinutos(janela.inicio);
     const fim = paraMinutos(janela.fim);
-    let melhor = -1, melhorSobreposicao = 0;
-    slots.forEach((s, i) => {
-        if (s.intervalo) return;
-        const sobreposicao = Math.min(fim, paraMinutos(s.fim)) - Math.max(ini, paraMinutos(s.inicio));
-        if (sobreposicao > melhorSobreposicao) {
-            melhorSobreposicao = sobreposicao;
-            melhor = i;
-        }
-    });
-    return melhor;
+    return slots.flatMap((s, i) => !s.intervalo &&
+        paraMinutos(s.inicio) >= ini && paraMinutos(s.fim) <= fim ? [i] : []);
 }
 
+// Usar o horário real evita deslocar células quando a grade muda.
 function chaveCelula(dia, slotIndex) {
-    return `${dia}|${slotIndex}`;
+    return `${dia}|${slots[slotIndex].inicio}`;
 }
 
 function filtrarMaterias(professores) {
@@ -178,8 +182,7 @@ function filtrarMaterias(professores) {
             const chaves = new Set();
             p.horarios_disponiveis.forEach(h => {
                 h.janelas.forEach(j => {
-                    const i = slotDaJanela(j);
-                    if (i >= 0) chaves.add(chaveCelula(h.dia_semana, i));
+                    slotsDaJanela(j).forEach(i => chaves.add(chaveCelula(h.dia_semana, i)));
                 });
             });
             return {
@@ -211,7 +214,7 @@ function gerarGradeSugerida() {
 }
 
 function chaveStorageGrade() {
-    return `gradeAluno:${aluno.id}:${aluno.curso}:${aluno.periodo}:${aluno.turno}`;
+    return `gradeAluno:v2:${aluno.id}:${aluno.curso}:${aluno.periodo}:${aluno.turno}`;
 }
 
 function chaveStoragePeriodos() {
@@ -229,7 +232,8 @@ function carregarGrade() {
             // descarta células com matérias que não existem mais para esse aluno
             const limpa = {};
             Object.entries(salva).forEach(([k, nome]) => {
-                if (buscarMateria(nome)) limpa[k] = nome;
+                const [dia, inicio] = k.split("|");
+                if (DIAS.includes(dia) && slots.some(s => !s.intervalo && s.inicio === inicio) && buscarMateria(nome)) limpa[k] = nome;
             });
             return limpa;
         }
@@ -548,3 +552,5 @@ function materiasNaGradeSugerida() {
 
 document.addEventListener("DOMContentLoaded", iniciar);
 document.addEventListener("perfilAtualizado", iniciar);
+// Mantém os handlers HTML originais disponíveis após o build do Vite.
+Object.assign(window, { abrirModalId, fecharModalId, salvarPeriodo, restaurarSugestao, fecharModal, salvarAlteracao });

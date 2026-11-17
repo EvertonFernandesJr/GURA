@@ -4,7 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/src/styles/navbar.css">
-    <title>Gura</title>
+    <title>Notícias Universitárias | GURA</title>
+    <meta name="description" content="Acompanhe as notícias e novidades acadêmicas no GURA.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#0b2e59">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="GURA">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="Notícias Universitárias | GURA">
+    <meta property="og:description" content="Acompanhe as notícias e novidades acadêmicas no GURA.">
+    <meta property="og:image" content="./og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
     <style>
         :root {
             --azul: #142d3d;
@@ -232,10 +243,14 @@
             }
         }
     </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <script src="/src/services/injectNavbar.js" defer></script>
+    <script type="module" src="/src/services/profileModal.js"></script>
+    <script type="module" src="/src/services/injectNavbar.js"></script>
     <div id="header-nav"></div>
 
     <main>

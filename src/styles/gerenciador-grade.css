@@ -484,8 +484,22 @@ hr {
 }
 
 .tabela-scroll table {
-    min-width: 620px;
+    min-width: 0;
+    width: 100%;
+    table-layout: fixed;
 }
+
+/* Exibe os cinco dias sem cortar a última coluna. */
+#corpoGrade td,
+.coluna-tabela th,
+.coluna-tabela td {
+    overflow-wrap: anywhere;
+}
+
+.coluna-tabela:first-child th:first-child[rowspan] {
+    width: 15%;
+}
+
 
 .aula small {
     display: block;
@@ -523,7 +537,7 @@ hr {
    RESPONSIVO
 ======================================== */
 
-@media (max-width: 1100px) {
+@media (max-width: 1450px) {
     .container-topo {
         flex-wrap: wrap;
         padding: 20px 5%;
@@ -585,4 +599,12 @@ hr {
     .modal-acoes button {
         flex: 1;
     }
+}
+@media (max-width: 700px) {
+    .coluna-tabela th,
+    .coluna-tabela td {
+        padding: 6px 3px;
+        font-size: clamp(10px, 2vw, 13px);
+    }
+    .aula small { font-size: 10px; }
 }
