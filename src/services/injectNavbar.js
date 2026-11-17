@@ -1,17 +1,18 @@
+import navbarHtml from "../../navbar.html?raw";
+
 document.addEventListener("DOMContentLoaded", function(){
-  fetch("navbar.html")
-  .then(response => response.text())
-  .then(data =>{
-    document.getElementById("header-nav").innerHTML = data;
-    document.dispatchEvent(new Event("navbar:loaded"));
-  })
+  const target = document.getElementById("header-nav");
+  if (!target) return;
+  const fragment = new DOMParser().parseFromString(navbarHtml, "text/html");
+  target.innerHTML = fragment.body.innerHTML;
+  document.dispatchEvent(new Event("navbar:loaded"));
 })
 
 document.addEventListener("navbar:loaded", () => {
   const logoutButton = document.getElementById("logout-btn");
   logoutButton.addEventListener("click", () => {
     localStorage.removeItem("authSession");
-    window.location.href = "/login.html";
+    window.location.href = "./login.html";
   });
 
   const links = document.querySelectorAll(".navbar-menu a");

@@ -34,13 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   try {
-    let response = await fetch('/noticias.json').catch(() => null);
-    if (!response || !response.ok) {
-      response = await fetch('./noticias.json').catch(() => null);
-    }
-    if (!response || !response.ok) {
-      response = await fetch('/public/noticias.json').catch(() => null);
-    }
+    const response = await fetch('./noticias.json');
 
     if (!response || !response.ok) {
       throw new Error("Não foi possível encontrar o arquivo noticias.json");

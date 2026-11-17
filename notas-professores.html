@@ -4,11 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GURA</title>
+    <title>Avaliação de Professores | GURA</title>
+    <meta name="description" content="Avalie professores da Engenharia da Computação em três critérios (geral, aula e pessoa) e consulte a média dos colegas.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#0b2e59">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="GURA">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="Avaliação de Professores | GURA">
+    <meta property="og:description" content="Avalie professores da Engenharia da Computação em três critérios (geral, aula e pessoa) e consulte a média dos colegas.">
+    <meta property="og:image" content="./og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="/src/styles/np_style.css">
     <link rel="stylesheet" href="/src/styles/navbar.css">
-    <script src="/src/services/profileModal.js" defer></script>
-    <script src="/src/services/injectNavbar.js"></script>
+    <script type="module" src="/src/services/profileModal.js"></script>
+    <script type="module" src="/src/services/injectNavbar.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -28,6 +42,8 @@
             Professores
         </h1>
 
+
+        <p class="mensagem-professores" id="mensagemProfessores" role="status" hidden></p>
 
         <!-- ========================================
              CARROSSEL
@@ -54,387 +70,7 @@
                  CONTAINER DOS PROFESSORES
             ========================================= -->
 
-            <div class="professores-container">
-
-
-                <!-- ========================================
-                     PROFESSOR 1
-                ========================================= -->
-
-                <article class="professor-card" data-nome="Hamilton">
-
-
-                    <!-- DADOS DO PROFESSOR -->
-
-                    <section class="dados-prof">
-
-                        <div class="foto-prof"></div>
-
-
-                        <div class="info-prof">
-
-                            <div>
-                                <strong>Nome:</strong>
-                                Hamilton
-                            </div>
-
-                            <div>
-                                <strong>Matéria:</strong>
-                                Eletrônica
-                            </div>
-
-                            <div>
-                                <strong>Formação:</strong>
-                                Engenharia Elétrica | Unicamp
-                            </div>
-
-                        </div>
-
-                    </section>
-
-
-
-                    <!-- AVALIAÇÕES -->
-
-                    <section class="avaliacoes">
-
-
-                        <!-- MÉDIA GERAL -->
-
-                        <div class="avaliacao">
-
-                            <h2>
-                                Média geral
-                            </h2>
-
-                            <ul>
-
-                                <li>
-                                    Nota geral:
-                                    <span>5/5</span>
-                                </li>
-
-                                <li>
-                                    Nota aula:
-                                    <span>5/5</span>
-                                </li>
-
-                                <li>
-                                    Nota pessoa:
-                                    <span>5/5</span>
-                                </li>
-
-                            </ul>
-
-                        </div>
-
-
-
-                        <!-- SUA AVALIAÇÃO -->
-
-                        <div class="sua-nota">
-
-                            <h2>
-                                Sua avaliação
-                            </h2>
-
-                            <div class="notas-usuario">
-
-                                <div class="grupo-estrelas" data-tipo="geral" data-nota="0">
-                                    <span class="label-nota">Nota geral</span>
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 1">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 2">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 3">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 4">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 5">
-                                    <span class="valor-nota">0/5</span>
-                                </div>
-
-                                <div class="grupo-estrelas" data-tipo="aula" data-nota="0">
-                                    <span class="label-nota">Nota aula</span>
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 1">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 2">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 3">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 4">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 5">
-                                    <span class="valor-nota">0/5</span>
-                                </div>
-
-                                <div class="grupo-estrelas" data-tipo="pessoa" data-nota="0">
-                                    <span class="label-nota">Nota pessoa</span>
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 1">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 2">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 3">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 4">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 5">
-                                    <span class="valor-nota">0/5</span>
-                                </div>
-
-                            </div>
-
-                            <div class="acoes-nota">
-                                <a href="#" class="btn-enviar-nota">De sua nota</a>
-                                <a href="#" class="btn-limpar-nota">Limpar nota</a>
-                            </div>
-
-                        </div>
-
-                    </section>
-
-                </article>
-
-
-
-                <!-- ========================================
-                     PROFESSOR 2
-                ========================================= -->
-
-                <article class="professor-card" data-nome="Bia Leite">
-
-
-                    <section class="dados-prof">
-
-                        <div class="foto-prof"></div>
-
-
-                        <div class="info-prof">
-
-                            <div>
-                                <strong>Nome:</strong>
-                                Bia Leite
-                            </div>
-
-                            <div>
-                                <strong>Matéria:</strong>
-                                Cálculo I
-                            </div>
-
-                            <div>
-                                <strong>Formação:</strong>
-                                Matemática | Puc-campinas
-                            </div>
-
-                        </div>
-
-                    </section>
-
-
-
-                    <section class="avaliacoes">
-
-
-                        <!-- MÉDIA GERAL -->
-
-                        <div class="avaliacao">
-
-                            <h2>
-                                Média geral
-                            </h2>
-
-                            <ul>
-
-                                <li>
-                                    Nota geral:
-                                    <span>1.5/5</span>
-                                </li>
-
-                                <li>
-                                    Nota aula:
-                                    <span>2/5</span>
-                                </li>
-
-                                <li>
-                                    Nota pessoa:
-                                    <span>1/5</span>
-                                </li>
-
-                            </ul>
-
-                        </div>
-
-
-
-                        <!-- SUA AVALIAÇÃO -->
-
-                        <div class="sua-nota">
-
-                            <h2>
-                                Sua avaliação
-                            </h2>
-
-                            <div class="notas-usuario">
-
-                                <div class="grupo-estrelas" data-tipo="geral" data-nota="0">
-                                    <span class="label-nota">Nota geral</span>
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 1">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 2">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 3">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 4">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 5">
-                                    <span class="valor-nota">0/5</span>
-                                </div>
-
-                                <div class="grupo-estrelas" data-tipo="aula" data-nota="0">
-                                    <span class="label-nota">Nota aula</span>
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 1">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 2">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 3">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 4">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 5">
-                                    <span class="valor-nota">0/5</span>
-                                </div>
-
-                                <div class="grupo-estrelas" data-tipo="pessoa" data-nota="0">
-                                    <span class="label-nota">Nota pessoa</span>
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 1">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 2">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 3">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 4">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 5">
-                                    <span class="valor-nota">0/5</span>
-                                </div>
-
-                            </div>
-
-                            <div class="acoes-nota">
-                                <a href="#" class="btn-enviar-nota">De sua nota</a>
-                                <a href="#" class="btn-limpar-nota">Limpar nota</a>
-                            </div>
-
-                        </div>
-
-                    </section>
-
-                </article>
-
-
-
-                <!-- ========================================
-                     PROFESSOR 3
-                ========================================= -->
-
-                <article class="professor-card" data-nome="Silvia">
-
-
-                    <section class="dados-prof">
-
-                        <div class="foto-prof"></div>
-
-
-                        <div class="info-prof">
-
-                            <div>
-                                <strong>Nome:</strong>
-                                Silvia
-                            </div>
-
-                            <div>
-                                <strong>Matéria:</strong>
-                                Programação
-                            </div>
-
-                            <div>
-                                <strong>Formação:</strong>
-                                Ciência da Computação | Unicamp
-                            </div>
-
-                        </div>
-
-                    </section>
-
-
-
-                    <section class="avaliacoes">
-
-
-                        <!-- MÉDIA GERAL -->
-
-                        <div class="avaliacao">
-
-                            <h2>
-                                Média geral
-                            </h2>
-
-                            <ul>
-
-                                <li>
-                                    Nota geral:
-                                    <span>3.5/5</span>
-                                </li>
-
-                                <li>
-                                    Nota aula:
-                                    <span>4/5</span>
-                                </li>
-
-                                <li>
-                                    Nota pessoa:
-                                    <span>3/5</span>
-                                </li>
-
-                            </ul>
-
-                        </div>
-
-
-
-                        <!-- SUA AVALIAÇÃO -->
-
-                        <div class="sua-nota">
-
-                            <h2>
-                                Sua avaliação
-                            </h2>
-
-                            <div class="notas-usuario">
-
-                                <div class="grupo-estrelas" data-tipo="geral" data-nota="0">
-                                    <span class="label-nota">Nota geral</span>
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 1">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 2">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 3">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 4">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 5">
-                                    <span class="valor-nota">0/5</span>
-                                </div>
-
-                                <div class="grupo-estrelas" data-tipo="aula" data-nota="0">
-                                    <span class="label-nota">Nota aula</span>
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 1">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 2">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 3">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 4">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 5">
-                                    <span class="valor-nota">0/5</span>
-                                </div>
-
-                                <div class="grupo-estrelas" data-tipo="pessoa" data-nota="0">
-                                    <span class="label-nota">Nota pessoa</span>
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 1">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 2">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 3">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 4">
-                                    <img class="estrela" src="/src/images/starempty.png" alt="Estrela 5">
-                                    <span class="valor-nota">0/5</span>
-                                </div>
-
-                            </div>
-
-                            <div class="acoes-nota">
-                                <a href="#" class="btn-enviar-nota">De sua nota</a>
-                                <a href="#" class="btn-limpar-nota">Limpar nota</a>
-                            </div>
-
-                        </div>
-
-                    </section>
-
-                </article>
-
-
-            </div>
-
-
+            <div class="professores-container" id="professoresContainer"></div>
 
             <!-- ========================================
                  SETA PRÓXIMA
@@ -459,7 +95,7 @@
          JAVASCRIPT DO CARROSSEL
     ========================================= -->
 
-    <script src="/src/scripts/np_script.js">
+    <script type="module" src="/src/scripts/np_script.js">
     </script>
 
 
